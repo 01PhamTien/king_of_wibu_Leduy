@@ -4,6 +4,7 @@ import AppRoutes from './route/routes'; // Đảm bảo tên import khớp với
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+
 const App = () => {
   const location = useLocation();
 
@@ -18,6 +19,8 @@ const App = () => {
       {!shouldHideHeaderFooter && <Header />}
       <AppRoutes />
       {!shouldHideHeaderFooter && <Footer />}
+
+      
     </div>
   );
 };
