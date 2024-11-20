@@ -9,7 +9,8 @@ import RegisterPage from '../pages/RegisterPage';
 import RoomDetailPage from '../pages/RoomDetailPage';
 import RoomListPage from '../pages/RoomListPage';
 import NewsPage from '../pages/NewsPage';
-import AuthLayout from '../components/AuthLayout'; // Import layout không có header/footer
+import AuthLayout from '../components/AuthLayout'; 
+import SearchResults from '../components/SearchResults'; 
 
 
 
@@ -26,6 +27,7 @@ function AppRoutes() {
       <Route path="/room-list" element={<RoomListPage />} />
       <Route path="/room-list" element={<RoomListPage />} />
       <Route path="/news" element={<NewsPage />} />
+      <Route path="/search-results" element={<SearchResults />} />
 
       {/* Đường dẫn Login và Register sử dụng AuthLayout */}
       <Route path="/login" element={<AuthLayout><LoginPage /></AuthLayout>} />

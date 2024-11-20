@@ -256,8 +256,8 @@ const HomePage = () => {
       <img src="/images/18.jpg" alt="Partner 2" />
       <img src="/images/20.jpg" alt="Partner 3" />
       <img src="/images/019.jpg" alt="Partner 4" />
-      <img src="/images/021.jpg" alt="Partner 5" />
-      <img src="/images/022.jpg" alt="Partner 6" />
+      <img src="/images/partner5.jpg" alt="Partner 5" />
+      <img src="/images/partner6.jpg" alt="Partner 6" />
     </div>
   </div>
 

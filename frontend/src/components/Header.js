@@ -1,51 +1,68 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // Thêm CSS cho DatePicker
-import { FaSearch } from 'react-icons/fa'; // Sử dụng icon tìm kiếm từ react-icons
-import '../assets/css/Header.css'; // Custom CSS
+import 'react-datepicker/dist/react-datepicker.css';
+import { FaSearch } from 'react-icons/fa';
+import '../assets/css/Header.css';
+import { SearchContext } from '../context/SearchContext';
 
 const Header = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [guests, setGuests] = useState(1); // Mặc định 1 khách
-  const [rooms, setRooms] = useState(1);   // Mặc định 1 phòng
+  const [guests, setGuests] = useState(1);
+  const [rooms, setRooms] = useState(1);
+  const [destination, setDestination] = useState('');
+  const { setSearchResults } = useContext(SearchContext);
+  const navigate = useNavigate();
 
-  // Hàm xử lý sự kiện khi tìm kiếm
-  const handleSearch = () => {
-    console.log('Searching for:', { startDate, endDate, guests, rooms });
-  };
-
-  // Hàm xử lý khi chọn ngày check-in
   const handleDateChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
   };
 
+  const handleSearch = () => {
+    if (!startDate || !guests || !rooms || !destination) {
+      alert('Please fill all the fields.');
+      return;
+    }
+
+    // Format the dates to 'YYYY-MM-DD'
+    const formattedStartDate = startDate.toISOString().split('T')[0];
+    const formattedEndDate = endDate ? endDate.toISOString().split('T')[0] : formattedStartDate;
+
+    const url = `http://localhost:5000/api/search?destination=${destination}&startDate=${formattedStartDate}&endDate=${formattedEndDate}&guests=${guests}&rooms=${rooms}`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchResults(data); // Store the search results in context
+        navigate('/search-results'); // Navigate to the search results page
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
+
   return (
     <header className="header">
-      {/* Top Section: Logo + Auth Buttons */}
       <div className="header-top">
         <div className="logo">
           <Link to="/">
-            <i className="bi bi-house-door-fill"></i> {/* Icon nhà */}
+            <i className="bi bi-house-door-fill"></i>
             BOOKING.COM
           </Link>
         </div>
         <div className="auth-buttons">
           <Link to="/register">
-            <i className="bi bi-person-plus"></i> {/* Icon đăng ký */}
-            Register
+            <i className="bi bi-person-plus"></i> Register
           </Link>
           <Link to="/login">
-            <i className="bi bi-box-arrow-in-right"></i> {/* Icon đăng nhập */}
-            Sign In
+            <i className="bi bi-box-arrow-in-right"></i> Sign In
           </Link>
         </div>
       </div>
 
-      {/* Navigation Section */}
       <nav className="nav">
         <Link to="/"><i className="bi bi-house"></i> Home</Link>
         <Link to="/room-list"><i className="bi bi-list-ul"></i> Room List</Link>
@@ -55,28 +72,24 @@ const Header = () => {
         <Link to="/contact"><i className="bi bi-envelope"></i> Contact</Link>
       </nav>
 
-      {/* Middle Text Section */}
       <div className="middle-text">
         <p><i className="bi bi-search"></i> Find your next stay</p>
-        <p>Search low prices on hotels, homes and much more...</p>
+        <p>Search low prices on hotels, homes, and much more...</p>
       </div>
 
-      {/* Search Section */}
       <div className="search-section">
-        
-         {/* Destination */}
-         <div className="input-container">
+        <div className="input-container">
           <label>Destination</label>
           <input
             type="text"
             className="form-control"
             placeholder="Destination (e.g., Phu Quoc)"
+            value={destination}
+            onChange={(e) => setDestination(e.target.value)}
           />
         </div>
-
-        {/* Chọn ngày check-in và check-out chung một ô */}
         <div className="date-picker-container">
-          <label>Select Date</label> {/* Dòng ngắn hơn cho Check-in/Check-out */}
+          <label>Select Date</label>
           <DatePicker
             selected={startDate}
             onChange={handleDateChange}
@@ -85,11 +98,11 @@ const Header = () => {
             selectsRange
             dateFormat="dd/MM/yyyy"
             className="form-control"
-            minDate={new Date()} // Ngày tối thiểu có thể chọn là ngày hiện tại
+            minDate={new Date()}
             placeholderText="Select Dates"
+            calendarClassName="custom-calendar"
           />
         </div>
-        {/* Số người và số phòng */}
         <div className="guests-room-container">
           <div className="input-container">
             <label>Guests</label>
@@ -112,9 +125,6 @@ const Header = () => {
             />
           </div>
         </div>
-
-       
-
         <button className="btn btn-primary" onClick={handleSearch}>
           <FaSearch /> Search
         </button>
