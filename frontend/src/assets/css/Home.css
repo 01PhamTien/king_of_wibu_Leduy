@@ -77,11 +77,13 @@ body {
 .promotion {
   margin: 20px;
   text-align: left; /* Canh trái nội dung */
+
 }
 
-.promotion h2 {
+.promotion h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .promotion-item {
@@ -185,7 +187,7 @@ body {
 
 .hotel-item h3 {
   margin: 10px 0; /* Khoảng cách giữa tên và các phần khác */
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -318,7 +320,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 15px;
   padding: 10px;
-  border: 1px solid red;
+  
 }
 
 .payment-partners .payment-logos img {
@@ -326,7 +328,7 @@ body {
   object-fit: cover;
   max-width: 100px;
   height: auto;
-  border: 1px solid red;
+  
 }
 
 
@@ -338,13 +340,14 @@ body {
 .hot-destinations {  
   margin: 40px 0;  /* Khoảng cách trên và dưới rộng thêm */
   text-align: center; 
-  margin-top: 50px; 
+  margin-top: 20px; 
 }  
 
 .destination-grid {  
   display: grid; /* Sử dụng grid */  
   grid-template-columns: repeat(4, 1fr); /* Tạo 4 cột */  
   gap: 20px; /* Khoảng cách giữa các item */  
+  margin-top: 20px;
 }  
 
 .destination-item {  
