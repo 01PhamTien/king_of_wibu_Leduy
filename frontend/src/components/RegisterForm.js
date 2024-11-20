@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Dùng icon từ react-icons
 
 const RegisterForm = () => {
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate(); // Khởi tạo useNavigate
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -30,9 +33,9 @@ const RegisterForm = () => {
       .matches(/\d/, "Phải chứa ít nhất một chữ số")
       .matches(/[@$!%*?&#]/, "Phải chứa ít nhất một ký tự đặc biệt")
       .required("Mật khẩu là bắt buộc"),
-    birthDate: Yup.date()
-      .max(new Date(), "Ngày sinh không hợp lệ")
-      .required("Ngày sinh là bắt buộc"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Mật khẩu xác nhận không khớp")
+      .required("Xác nhận mật khẩu là bắt buộc"),
     gender: Yup.string()
       .oneOf(["Nam", "Nữ", "Khác"], "Giới tính không hợp lệ")
       .required("Giới tính là bắt buộc"),
@@ -44,14 +47,13 @@ const RegisterForm = () => {
       lastName: "",
       emailOrPhone: "",
       password: "",
-      birthDate: "",
+      confirmPassword: "",
       gender: "",
     },
     validationSchema,
     onSubmit: (values) => {
       const users = JSON.parse(localStorage.getItem("users")) || [];
       
-      // Kiểm tra nếu email đã tồn tại
       const isEmailExist = users.some(user => user.emailOrPhone === values.emailOrPhone);
       
       if (isEmailExist) {
@@ -60,12 +62,11 @@ const RegisterForm = () => {
         users.push(values);
         localStorage.setItem("users", JSON.stringify(users));
         setSuccessMessage("Đăng ký thành công!");
-        setErrorMessage(null); // Xóa lỗi nếu đăng ký thành công
+        setErrorMessage(null);
         
-        // Chuyển hướng người dùng đến trang đăng nhập
         setTimeout(() => {
-          navigate("/login"); // Định tuyến đến trang login
-        }, 2000); // Chờ 2 giây trước khi chuyển hướng (có thể tùy chỉnh thời gian)
+          navigate("/login");
+        }, 2000);
       }
     },
   });
@@ -115,30 +116,48 @@ const RegisterForm = () => {
             <p className="error-message">{formik.errors.emailOrPhone}</p>
           )}
         </div>
-        <div className="form-group">
+        <div className="form-group password-container">
           <label>Mật khẩu:</label>
-          <input
-            type="password"
-            name="password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
+          <div className="input-with-icon">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <span
+              className="icon"
+              onClick={() => setShowPassword(!showPassword)}
+              style={{ cursor: "pointer" }}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
           {formik.touched.password && formik.errors.password && (
             <p className="error-message">{formik.errors.password}</p>
           )}
         </div>
-        <div className="form-group">
-          <label>Ngày sinh:</label>
-          <input
-            type="date"
-            name="birthDate"
-            value={formik.values.birthDate}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.birthDate && formik.errors.birthDate && (
-            <p className="error-message">{formik.errors.birthDate}</p>
+        <div className="form-group password-container">
+          <label>Xác nhận mật khẩu:</label>
+          <div className="input-with-icon">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={formik.values.confirmPassword}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <span
+              className="icon"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              style={{ cursor: "pointer" }}
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
+          {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+            <p className="error-message">{formik.errors.confirmPassword}</p>
           )}
         </div>
         <div className="form-group">
