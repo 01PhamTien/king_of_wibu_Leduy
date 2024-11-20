@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { SearchProvider } from "./context/SearchContext"; // Đảm bảo SearchProvider được import đúng
 
+
 const App = () => {
   const location = useLocation();
   const noHeaderFooterPaths = ["/login", "/register"]; // Các đường dẫn không có Header và Footer
@@ -17,6 +18,8 @@ const App = () => {
       {!shouldHideHeaderFooter && <Header />}
       <AppRoutes />
       {!shouldHideHeaderFooter && <Footer />}
+
+      
     </div>
   );
 };

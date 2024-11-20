@@ -27,7 +27,14 @@ const hotels = [
     "location": "Ho Chi Minh City",
     "price": 150,
     "availableRooms": 8
+  },
+   {
+    "name": "Grand Palace",
+    "location": "Phu Yen City",
+    "price": 550,
+    "availableRooms": 8
   }
+  
 ];
 
 // API tìm kiếm khách sạn

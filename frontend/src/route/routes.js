@@ -12,6 +12,10 @@ import NewsPage from '../pages/NewsPage';
 import AuthLayout from '../components/AuthLayout'; 
 import SearchResults from '../components/SearchResults'; 
 
+
+
+
+
 function AppRoutes() {
   return (
     <Routes>
@@ -20,6 +24,7 @@ function AppRoutes() {
       <Route path="/booking" element={<BookingPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/room/:id" element={<RoomDetailPage />} />
+      <Route path="/room-list" element={<RoomListPage />} />
       <Route path="/room-list" element={<RoomListPage />} />
       <Route path="/news" element={<NewsPage />} />
       <Route path="/search-results" element={<SearchResults />} />
