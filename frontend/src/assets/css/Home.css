@@ -159,89 +159,80 @@ body {
 
 /* Phòng khách sạn */
 .hotel-list {
-  margin: 20px 0;
+  margin: 20px 0; /* Khoảng cách giữa danh sách và các phần tử khác */
 }
 
 .hotel-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 30px; /* Tăng khoảng cách giữa các phần tử */
 }
 
 .hotel-item {
   background-color: white;
   border-radius: 10px;
-  padding: 15px;
-  text-align: left; /* Căn trái nội dung */
+  padding: 20px; /* Tăng khoảng cách nội dung bên trong */
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng nổi */
 }
 
 .hotel-item img {
   width: 100%;
   height: auto;
   border-radius: 10px;
+  margin-bottom: 15px; /* Khoảng cách giữa ảnh và nội dung */
 }
 
 .hotel-item h3 {
-  margin-top: 10px;
+  margin: 10px 0; /* Khoảng cách giữa tên và các phần khác */
   font-size: 18px;
-  font-weight: bold; /* Đổi tên phòng thành chữ đậm */
+  font-weight: bold;
 }
 
 .hotel-item p {
   font-size: 14px;
+  margin: 5px 0; /* Tạo khoảng cách giữa các đoạn văn */
 }
 
 .hotel-item .price {
-  font-weight: bold; /* In đậm giá tiền */
-  font-size: 16px;
-  color: #007bff; /* Màu sắc cho giá tiền */
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Playfair Display', serif; /* Font chữ sang trọng */
+  color: #0a58ca;
+  margin: 10px 0;
 }
+
 
 .rating {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Căn lề trái các ngôi sao */
-  margin: 10px 0;
-}
-
-.rating-text {
-  margin-left: 10px;
-  font-size: 14px;
-  margin-top: 3px; /* Điều chỉnh vị trí của phần đánh giá */
+  justify-content: flex-start;
+  margin: 10px 0; /* Khoảng cách giữa đánh giá và giá */
 }
 
 .rating-info {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Căn lề phải cho số người đánh giá */
-  margin-left: 10px; /* Khoảng cách giữa sao và phần thông tin */
-}
-
-.rating-info span {
-  margin-left: 5px;
-  font-size: 12px; /* Kích thước nhỏ cho số người đánh giá */
-  color: #888; /* Màu xám cho số người đánh giá */
+  margin-left: 10px; /* Khoảng cách giữa sao và thông tin đánh giá */
 }
 
 .hotel-item button {
-  background-color: #007bff;
+  margin-top: 15px; /* Khoảng cách giữa nút và các phần trên */
+  background-color: #0a58ca;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  display: block;
+  margin-left: auto; /* Đẩy nút về phía phải */
 }
 
 .hotel-item button:hover {
   background-color: #0056b3;
 }
 
-/* Cấu trúc chung cho phần đối tác */
-.partners {
-  display: flex;
-  flex-direction: column; /* Các phần tử sẽ nằm theo chiều dọc */
-  gap: 20px; /* Khoảng cách giữa các phần */
-}
+
+
+
 
 /* Cấu trúc chung cho phần đối tác */
 .partners {
@@ -257,7 +248,7 @@ body {
   gap: 30px;
   border-top: 1px solid black;
   padding-top: 25px;
-  margin-top: 25px;
+  margin-top: 50px;
 }
 
 .hotel-partners .partners-text {
@@ -327,6 +318,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 15px;
   padding: 10px;
+  border: 1px solid red;
 }
 
 .payment-partners .payment-logos img {
@@ -334,6 +326,7 @@ body {
   object-fit: cover;
   max-width: 100px;
   height: auto;
+  border: 1px solid red;
 }
 
 
@@ -344,7 +337,8 @@ body {
 /* Điểm đến hot nhất */
 .hot-destinations {  
   margin: 40px 0;  /* Khoảng cách trên và dưới rộng thêm */
-  text-align: center;  
+  text-align: center; 
+  margin-top: 50px; 
 }  
 
 .destination-grid {  

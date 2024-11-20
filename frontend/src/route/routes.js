@@ -11,6 +11,10 @@ import RoomListPage from '../pages/RoomListPage';
 import NewsPage from '../pages/NewsPage';
 import AuthLayout from '../components/AuthLayout'; // Import layout không có header/footer
 
+
+
+
+
 function AppRoutes() {
   return (
     <Routes>
@@ -19,6 +23,7 @@ function AppRoutes() {
       <Route path="/booking" element={<BookingPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/room/:id" element={<RoomDetailPage />} />
+      <Route path="/room-list" element={<RoomListPage />} />
       <Route path="/room-list" element={<RoomListPage />} />
       <Route path="/news" element={<NewsPage />} />
 

@@ -1,6 +1,10 @@
 import React from 'react';  
 import '../assets/css/Home.css'; // Import CSS cho trang chủ  
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'; // Sử dụng icon sao  
+ 
+
+
+
 
 
 const SearchResult = () => {  
@@ -42,6 +46,8 @@ const SearchResult = () => {
   );  
 };
 const HomePage = () => {  
+
+  
   // Giả lập dữ liệu đánh giá cho từng phòng (rating từ 1-5)  
   const rooms = [  
     { id: 1, name: 'New Star Inn Boutique Hotel', address: 'TP. Hồ Chí Minh, Việt Nam', price: '1,000,000 VND', rating: 4.5, reviews: 100, image: '/images/001.jpg' },  
@@ -76,7 +82,7 @@ const HomePage = () => {
 
   return (  
     <div className="homepage">  
-      
+      <banner/>
       <div className="banner">  
         <img  
           src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-75"  
@@ -104,7 +110,7 @@ const HomePage = () => {
                   <span> ({room.reviews} đánh giá)</span> {/* Số người đánh giá */}
                 </div>
               </div>  
-              <button>Đặt phòng</button>  
+              <button>Đặt ngay</button>  
             </div>  
           ))}  
         </div> 
@@ -129,7 +135,7 @@ const HomePage = () => {
                   <span> ({room.reviews} đánh giá)</span> {/* Số người đánh giá */}
                 </div>
               </div>  
-              <button>Đặt phòng</button>  
+              <button>Đặt Ngay</button>  
             </div>  
           ))}  
         </div>  
@@ -170,7 +176,7 @@ const HomePage = () => {
                   <span> ({room.reviews} đánh giá)</span> {/* Số người đánh giá */}
                 </div>
               </div>  
-              <button>Đặt phòng</button>  
+              <button>Đặt Ngay</button>  
             </div>  
           ))}  
         </div> 
@@ -196,7 +202,7 @@ const HomePage = () => {
                   <span> ({room.reviews} đánh giá)</span> {/* Số người đánh giá */}
                 </div>
               </div>  
-              <button>Đặt phòng</button>  
+              <button>Đặt Ngay</button>  
             </div>  
           ))}  
         </div>  
@@ -213,8 +219,8 @@ const HomePage = () => {
       <img src="/images/18.jpg" alt="Partner 2" />
       <img src="/images/20.jpg" alt="Partner 3" />
       <img src="/images/019.jpg" alt="Partner 4" />
-      <img src="/images/partner5.jpg" alt="Partner 5" />
-      <img src="/images/partner6.jpg" alt="Partner 6" />
+      <img src="/images/021.jpg" alt="Partner 5" />
+      <img src="/images/022.jpg" alt="Partner 6" />
     </div>
   </div>
 
@@ -227,9 +233,9 @@ const HomePage = () => {
     <div className="payment-logos">
       <img src="/images/21.jpg" alt="Payment Partner 1" />
       <img src="/images/22.jpg" alt="Payment Partner 2" />
-      <img src="/images/23.jpg" alt="Payment Partner 3" />
-      <img src="/images/21.jpg" alt="Payment Partner 1" />
-      <img src="/images/22.jpg" alt="Payment Partner 2" />
+      <img src="/images/026.jpg" alt="Payment Partner 3" />
+      <img src="/images/24.jpg" alt="Payment Partner 1" />
+      <img src="/images/025.jpg" alt="Payment Partner 2" />
       <img src="/images/23.jpg" alt="Payment Partner 3" />
     </div>
   </div>
