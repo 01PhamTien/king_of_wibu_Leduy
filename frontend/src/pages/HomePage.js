@@ -2,6 +2,45 @@ import React from 'react';
 import '../assets/css/Home.css'; // Import CSS cho trang chủ  
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'; // Sử dụng icon sao  
 
+
+const SearchResult = () => {  
+  const data = [  
+    {  
+      location: 'Kraków',  
+      date: 'T6, 22 tháng 11–CN, 24 tháng 11',  
+      numPeople: '2 người lớn',  
+      imgSrc: '/images/001.jpg'  
+    },  
+    {  
+      location: 'Prague',  
+      date: 'T6, 22 tháng 11–CN, 24 tháng 11',  
+      numPeople: '2 người lớn',  
+      imgSrc: '/images/001.jpg'  
+    }  
+  ];  
+
+  return (  
+    <div className="search-container">  
+      <h2>Tìm kiếm gần đây của bạn</h2>  
+      <div className="result-container">  
+        {data.map((item, index) => (  
+          <div key={index} className="result-card">  
+            <img  
+              src={item.imgSrc}  
+              alt={item.location}  
+              className="result-img"  
+            />  
+            <div className="result-details">  
+              <h3>{item.location}</h3>  
+              <p>{item.date}</p>  
+              <p>{item.numPeople}</p>  
+            </div>  
+          </div>  
+        ))}  
+      </div>  
+    </div>  
+  );  
+};
 const HomePage = () => {  
   // Giả lập dữ liệu đánh giá cho từng phòng (rating từ 1-5)  
   const rooms = [  
@@ -32,18 +71,71 @@ const HomePage = () => {
         ))}  
       </>  
     );  
-  };  
+  }; 
+   
 
   return (  
     <div className="homepage">  
+      
       <div className="banner">  
         <img  
           src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-75"  
           alt="Hotel Booking Banner"  
         />  
       </div>  
+      <div className="promotion"> 
+        <SearchResult /> {/* Phần tìm kiếm được thêm vào đây */} 
+        <div className="hotel-list">  
+        <h3>Bạn có còn quan tâm đến những chỗ nghỉ này?</h3>  
+        <div className="hotel-grid">  
+          {rooms.slice(0, 4).map((room) => (  
+            <div className="hotel-item" key={room.id}>  
+              <img  
+                src={room.image}  
+                alt={`Room ${room.id}`}  
+              />  
+              <h3>{room.name}</h3>  
+              <p>{room.address}</p>  
+              <p className="price"><strong>Giá từ: {room.price}/đêm</strong></p>  
+              <div className="rating">  
+                {renderStars(room.rating)}  
+                <div className="rating-info">
+                  <span>{room.rating}</span> {/* Đánh giá */}
+                  <span> ({room.reviews} đánh giá)</span> {/* Số người đánh giá */}
+                </div>
+              </div>  
+              <button>Đặt phòng</button>  
+            </div>  
+          ))}  
+        </div> 
+      </div> 
 
-      <div className="promotion">  
+      <div className="special-rooms">  
+         
+        <div className="hotel-grid">  
+          {rooms.slice(4, 8).map((room) => (  
+            <div className="hotel-item" key={room.id}>  
+              <img  
+                src={room.image}  
+                alt={`Room ${room.id}`}  
+              />  
+              <h3>{room.name}</h3>  
+              <p>{room.address}</p>  
+              <p className="price"><strong>Giá từ: {room.price}/đêm</strong></p>  
+              <div className="rating">  
+                {renderStars(room.rating)}  
+                <div className="rating-info">
+                  <span>{room.rating}</span> {/* Đánh giá */}
+                  <span> ({room.reviews} đánh giá)</span> {/* Số người đánh giá */}
+                </div>
+              </div>  
+              <button>Đặt phòng</button>  
+            </div>  
+          ))}  
+        </div>  
+      </div>
+
+
         <h3>Mã giảm giá Khách sạn</h3>  
         <div className="promotion-item">  
           <span>Mã: HOTELGANNHA</span>  
@@ -81,7 +173,8 @@ const HomePage = () => {
               <button>Đặt phòng</button>  
             </div>  
           ))}  
-        </div>  
+        </div> 
+         
       </div>  
 
       <div className="special-rooms">  

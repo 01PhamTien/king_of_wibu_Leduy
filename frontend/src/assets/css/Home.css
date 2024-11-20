@@ -17,6 +17,62 @@ body {
   display: block;
 }
 
+
+.search-container {  
+  background-color: #f8f9fa; /* Màu nền sáng */  
+  border-radius: 8px; /* Bo góc các cạnh */  
+  padding: 20px; /* Khoảng cách bên trong */  
+  margin-bottom: 20px; /* Khoảng cách với phần dưới */  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */  
+}  
+
+.search-container h2 {  
+  font-size: 24px; /* Kích thước phông chữ tiêu đề */  
+  margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */  
+  color: #333; /* Màu chữ tối cho tiêu đề */  
+  text-align: left; /* Căn lề trái cho tiêu đề */  
+}  
+
+.result-container {  
+  display: flex; /* Sử dụng flexbox để sắp xếp */  
+  flex-wrap: wrap; /* Để tự động xuống dòng */  
+}  
+
+
+
+.result-card:hover {  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm khi hover */  
+}  
+
+
+
+.result-card {  
+  display: flex; /* Sử dụng flexbox để sắp xếp ảnh và nội dung */  
+  align-items: center; /* Căn giữa theo chiều dọc */  
+  background-color: #fff; /* Màu nền trắng cho thẻ */  
+  border: 1px solid #eee; /* Đường viền nhẹ */  
+  border-radius: 5px; /* Bo góc */  
+  margin: 10px; /* Khoảng cách giữa các thẻ */  
+  width: calc(30% - 20px); /* Điều chỉnh chiều rộng, 3 thẻ trên một hàng */  
+  text-align: left; /* Căn lề trái cho nội dung */  
+  transition: box-shadow 0.3s; /* Hiệu ứng chuyển đổi cho đổ bóng */  
+}  
+
+.result-img {  
+  width: 150px; /* Chiều rộng cố định cho ảnh */  
+  height: 150px; /* Chiều cao cố định cho ảnh */  
+  object-fit: cover; /* Cắt hình ảnh cho phù hợp với khung */  
+  border-top-left-radius: 5px; /* Bo góc trên bên trái */  
+  border-top-right-radius: 5px; /* Bo góc trên bên phải */  
+  margin-right: 10px; /* Giảm khoảng cách bên phải với nội dung */ 
+  margin-left: 10px; 
+}  
+
+.result-details {  
+  padding: 10px; /* Khoảng cách bên trong */  
+  flex: 1; /* Khiến phần nội dung chiếm hết không gian còn lại */  
+}
+
 /* Khuyến mãi */
 .promotion {
   margin: 20px;
