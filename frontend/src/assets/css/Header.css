@@ -189,3 +189,74 @@
   border-color: #003580;
 }
 
+/* Tùy chỉnh kích thước của lịch khi mở ra */
+.custom-calendar {
+  font-size: 18px; /* Tăng kích thước font trong lịch */
+  width: 700px; /* Tăng chiều rộng của lịch */
+  height: auto; /* Đảm bảo chiều cao tự động */
+  margin: 0 auto; /* Canh giữa lịch */
+}
+
+/* Điều chỉnh các ngày trong lịch */
+.custom-calendar .react-datepicker__day {
+  font-size: 16px; /* Tăng kích thước font các ngày trong lịch */
+  padding-left: 15%; /* Thêm không gian giữa các ngày */
+  padding-right: 10%; /* Thêm không gian giữa các ngày */
+  padding-top: 10px;
+  
+  
+}
+/* Căn giữa các tiêu đề ngày trong tuần (Thứ 2, Thứ 3, Thứ 4...) */
+.custom-calendar .react-datepicker__day-name {
+  font-size: 16px; /* Tăng kích thước font các ngày trong lịch */
+  padding-right: 30px;
+  padding-top: 10px; 
+  color: #6da7ff;
+}
+
+
+/* Điều chỉnh các tiêu đề tháng và năm */
+/* Điều chỉnh cho phần tiêu đề tháng và năm ở giữa */
+.custom-calendar .react-datepicker__current-month {
+  font-size: 20px; /* Tăng kích thước tiêu đề tháng/năm */
+  font-weight: bold;
+  color: #25d20a;
+  text-align: center; /* Canh giữa tiêu đề tháng/năm */
+  padding: 10px 0; /* Thêm padding trên và dưới */
+  display: flex;
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  margin-left:50%;
+}
+
+/* Điều chỉnh phần tiêu đề ngày tháng năm khi mở lịch */
+.react-datepicker__header {
+  display: flex;
+  justify-content: space-between; /* Đặt nút điều hướng trái/phải ở 2 bên */
+  align-items: center;
+}
+
+/* Điều chỉnh nút điều hướng trái và phải */
+.react-datepicker__navigation {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #003580;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.react-datepicker__navigation--previous {
+  order: 0; /* Đặt nút "lùi" sang bên trái */
+}
+
+.react-datepicker__navigation--next {
+  order: 2; /* Đặt nút "tiến" sang bên phải */
+}
+
+
+/* Thêm hiệu ứng khi hover vào các nút điều hướng */
+.custom-calendar .react-datepicker__navigation:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}

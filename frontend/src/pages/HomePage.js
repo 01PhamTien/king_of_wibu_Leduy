@@ -121,7 +121,7 @@ const HomePage = () => {
       <img src="/images/20.jpg" alt="Partner 3" />
       <img src="/images/019.jpg" alt="Partner 4" />
       <img src="/images/partner5.jpg" alt="Partner 5" />
-      <img src="/images/partner6.jpg" alt="Partner 6" />
+      <img src="/images/partner6.jpg" alt="Partner 6"y />
     </div>
   </div>
 

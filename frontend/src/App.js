@@ -1,14 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, useLocation } from 'react-router-dom';
-import AppRoutes from './route/routes'; // Đảm bảo tên import khớp với tên export
-import Header from './components/Header';
-import Footer from './components/Footer';
+import React from "react";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import AppRoutes from "./route/routes"; // Đảm bảo đường dẫn chính xác
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { SearchProvider } from "./context/SearchContext"; // Đảm bảo SearchProvider được import đúng
 
 const App = () => {
   const location = useLocation();
-
-  // Các đường dẫn không muốn hiển thị Header và Footer
-  const noHeaderFooterPaths = ['/login', '/register'];
+  const noHeaderFooterPaths = ["/login", "/register"]; // Các đường dẫn không có Header và Footer
 
   const shouldHideHeaderFooter = noHeaderFooterPaths.includes(location.pathname);
 
@@ -22,10 +21,13 @@ const App = () => {
   );
 };
 
+// Bao bọc App bằng SearchProvider và Router
 const AppWrapper = () => (
-  <Router>
-    <App />
-  </Router>
+  <SearchProvider>
+    <Router>
+      <App />
+    </Router>
+  </SearchProvider>
 );
 
 export default AppWrapper;
