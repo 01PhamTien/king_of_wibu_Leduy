@@ -1,10 +1,51 @@
 import React from 'react';  
 import '../assets/css/Home.css'; // Import CSS cho trang chủ  
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'; // Sử dụng icon sao  
- 
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 
+const Banner = () => {
+  const settings = {
+    dots: true, // Hiển thị các chấm điều hướng
+    infinite: true, // Lặp lại ảnh
+    speed: 500, // Tốc độ chuyển đổi giữa các ảnh
+    slidesToShow: 1, // Hiển thị 1 ảnh cùng lúc
+    slidesToScroll: 1, // Chuyển một ảnh mỗi lần
+    autoplay: true, // Tự động chạy
+    autoplaySpeed: 300, // Thời gian mỗi ảnh hiện
+  };
+
+  return (
+    <div className="banner">
+      <Slider {...settings}>
+        <div>
+          <img 
+            src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-75"
+            alt="Hotel Booking Banner 1"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </div>
+        <div>
+          <img 
+            src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-75" // Thay bằng URL hình ảnh thứ 2
+            alt="Hotel Booking Banner 2"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </div>
+        <div>
+          <img 
+            src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-75" // Thay bằng URL hình ảnh thứ 3
+            alt="Hotel Booking Banner 3"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </div>
+      </Slider>
+    </div>
+  );
+};
 
 
 const SearchResult = () => {  
@@ -46,7 +87,7 @@ const SearchResult = () => {
   );  
 };
 const HomePage = () => {  
-
+  
   
   // Giả lập dữ liệu đánh giá cho từng phòng (rating từ 1-5)  
   const rooms = [  
@@ -82,13 +123,9 @@ const HomePage = () => {
 
   return (  
     <div className="homepage">  
-      <banner/>
-      <div className="banner">  
-        <img  
-          src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-75"  
-          alt="Hotel Booking Banner"  
-        />  
-      </div>  
+      
+      {/* Đặt Banner ở trên phần chính */}
+      <Banner />  
       <div className="promotion"> 
         <SearchResult /> {/* Phần tìm kiếm được thêm vào đây */} 
         <div className="hotel-list">  
