@@ -12,13 +12,7 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
     "react-router-dom": "^6.28.0",
-<<<<<<< HEAD
     "react-scripts": "^5.0.1",
-=======
-    "react-scripts": "5.0.1",
-    "react-slick": "^0.30.2",
-    "slick-carousel": "^1.8.1",
->>>>>>> 4dac0e3e3de8877b58bbef8d952c5060646fe692
     "web-vitals": "^4.2.4",
     "yup": "^1.4.0"
   },
