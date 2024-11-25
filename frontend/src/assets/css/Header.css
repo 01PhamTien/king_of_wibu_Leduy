@@ -1,6 +1,6 @@
-/* General Header Styles */
+/* General Styles for Header */
 .header {
-  background: linear-gradient(90deg, #d0e6ff, #b3d1ff); /* Màu nền đậm hơn */
+  background: linear-gradient(90deg, #d0e6ff, #b3d1ff);
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
@@ -8,6 +8,112 @@
   position: relative;
   z-index: 1;
 }
+
+/* Navigation Section */
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.nav a {
+  padding: 10px 15px;
+  border: 2px solid white;
+  color: #003580;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #f3f364;
+  color: #003580;
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  margin-top: 12px;
+}
+
+.dropdown-toggle {
+  cursor: pointer;  
+}
+/* Định dạng phần chào mừng */
+.welcome-message {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.welcome-message span {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 50px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 30px; /* Điều chỉnh tùy theo vị trí hiển thị */
+  right: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: none;
+}
+
+.welcome-message:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu button {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60%;
+  left: 0;
+  background-color: rgb(172, 172, 172) ;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0;
+  font-weight: 900;
+  text-decoration: none;
+  color: #003580;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+  background-color:white;
+}
+
+.dropdown-menu a:hover {
+  background-color: #b96349;
+  color: #003580;
+}
+
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 
 /* Top Section (Logo + Login/Sign In) */
 .header-top {

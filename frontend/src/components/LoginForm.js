@@ -15,6 +15,7 @@ const LoginForm = () => {
     // Kiểm tra nếu là admin
     if (emailOrPhone === "admin" && password === "admin123") {
       localStorage.setItem("adminToken", "your_admin_token");
+      localStorage.setItem("loggedInUser", JSON.stringify({ name: "Admin", role: "admin" }));
       navigate("/admin"); // Điều hướng đến trang quản trị (admin)
     } else {
       // Kiểm tra thông tin đăng nhập của người dùng
@@ -23,11 +24,9 @@ const LoginForm = () => {
       );
 
       if (user) {
-        // Lưu thông tin người dùng vào localStorage (nếu cần)
+        // Lưu thông tin người dùng vào localStorage
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        
-        // Điều hướng đến trang Home
-        navigate("/home");
+        navigate("/home"); // Điều hướng đến trang Home
       } else {
         // Nếu không tìm thấy thông tin hợp lệ
         setErrorMessage("Tên đăng nhập hoặc mật khẩu không hợp lệ");
@@ -73,20 +72,16 @@ const LoginForm = () => {
         <button type="submit" className="btn-login">Đăng nhập</button>
       </form>
 
-      {/* Nút đăng nhập bằng Google và Facebook */}
       <div className="social-login-container">
         <p>Hoặc đăng nhập bằng:</p>
         <button className="btn-google" onClick={handleGoogleLogin}>
-          <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google logo" />
           Google
         </button>
         <button className="btn-facebook" onClick={handleFacebookLogin}>
-          <img src="https://img.icons8.com/color/16/000000/facebook.png" alt="Facebook logo" />
           Facebook
         </button>
       </div>
 
-      {/* Liên kết đến trang đăng ký */}
       <div className="register-link-container">
         <p>Chưa có tài khoản?</p>
         <Link to="/register" className="register-link">Đăng ký ngay</Link>

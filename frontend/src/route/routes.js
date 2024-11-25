@@ -7,14 +7,14 @@ import ContactPage from '../pages/ContactPage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import RoomDetailPage from '../pages/RoomDetailPage';
-import RoomListPage from '../pages/RoomListPage';
+
+
 import NewsPage from '../pages/NewsPage';
 import AuthLayout from '../components/AuthLayout'; 
-import SearchResults from '../components/SearchResults'; 
-
-
-
-
+import SearchResults from '../components/SearchResults';
+import SingleRoomPage from '../pages/roomlist/SingleRoomPage'; // Thêm các trang này
+import DoubleRoomPage from '../pages/roomlist/DoubleRoomPage'; 
+import FamilyRoomPage from '../pages/roomlist/FamilyRoomPage'; 
 
 function AppRoutes() {
   return (
@@ -24,8 +24,12 @@ function AppRoutes() {
       <Route path="/booking" element={<BookingPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/room/:id" element={<RoomDetailPage />} />
-      <Route path="/room-list" element={<RoomListPage />} />
-      <Route path="/room-list" element={<RoomListPage />} />
+      
+      {/* Route cho RoomListPage và các loại phòng */}
+      <Route path="/room-list/single" element={<SingleRoomPage />} />
+      <Route path="/room-list/double" element={<DoubleRoomPage />} />
+      <Route path="/room-list/family" element={<FamilyRoomPage />} />
+
       <Route path="/news" element={<NewsPage />} />
       <Route path="/search-results" element={<SearchResults />} />
 

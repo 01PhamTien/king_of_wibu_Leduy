@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -14,6 +14,22 @@ const Header = () => {
   const [destination, setDestination] = useState('');
   const { setSearchResults } = useContext(SearchContext);
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); // Thêm state để xác định nếu là admin
+  const [userName, setUserName] = useState(''); // Lưu tên người dùng
+
+  useEffect(() => {
+    // Kiểm tra trạng thái đăng nhập khi component được render
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+      setIsLoggedIn(true);
+      setUserName(loggedInUser.name);  // Lấy tên người dùng từ localStorage
+      // Kiểm tra vai trò của người dùng
+      if (loggedInUser.role === 'admin') {
+        setIsAdmin(true);  // Nếu là admin, lưu lại trạng thái admin
+      }
+    }
+  }, []);
 
   const handleDateChange = (dates) => {
     const [start, end] = dates;
@@ -44,6 +60,15 @@ const Header = () => {
       });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('adminToken');
+    setIsLoggedIn(false);
+    setIsAdmin(false);
+    setUserName('');
+    navigate('/login');
+  };
+
   return (
     <header className="header">
       <div className="header-top">
@@ -54,18 +79,42 @@ const Header = () => {
           </Link>
         </div>
         <div className="auth-buttons">
-          <Link to="/register">
-            <i className="bi bi-person-plus"></i> Register
-          </Link>
-          <Link to="/login">
-            <i className="bi bi-box-arrow-in-right"></i> Sign In
-          </Link>
+          {!isLoggedIn && (
+            <>
+              <Link to="/register">
+                <i className="bi bi-person-plus"></i> Register
+              </Link>
+              <Link to="/login">
+                <i className="bi bi-box-arrow-in-right"></i> Sign In
+              </Link>
+            </>
+          )}
+          {isLoggedIn && (
+            <div className="welcome-message">
+              <span>Welcome, {userName}!</span> {/* Hiển thị tên người dùng khi đăng nhập */}
+              <div className="dropdown">
+                <button className="dropdown-toggle">Account</button>
+                <div className="dropdown-menu">
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
       <nav className="nav">
         <Link to="/"><i className="bi bi-house"></i> Home</Link>
-        <Link to="/room-list"><i className="bi bi-list-ul"></i> Room List</Link>
+        <div className="dropdown">
+          <Link className="dropdown-toggle">
+            <i className="bi bi-list-ul"></i> Room List
+          </Link>
+          <div className="dropdown-menu">
+            <Link to="/room-list/single">Single Rooms</Link>
+            <Link to="/room-list/double">Double Rooms</Link>
+            <Link to="/room-list/family">Family Rooms</Link>
+          </div>
+        </div>
         <Link to="/booking"><i className="bi bi-calendar-check"></i> Booking</Link>
         <Link to="/news"><i className="bi bi-newspaper"></i> News</Link>
         <Link to="/about"><i className="bi bi-info-circle"></i> About</Link>

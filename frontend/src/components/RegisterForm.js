@@ -28,10 +28,6 @@ const RegisterForm = () => {
       .required("Email hoặc Số điện thoại là bắt buộc"),
     password: Yup.string()
       .min(8, "Mật khẩu phải có ít nhất 8 ký tự")
-      .matches(/[A-Z]/, "Phải chứa ít nhất một chữ hoa")
-      .matches(/[a-z]/, "Phải chứa ít nhất một chữ thường")
-      .matches(/\d/, "Phải chứa ít nhất một chữ số")
-      .matches(/[@$!%*?&#]/, "Phải chứa ít nhất một ký tự đặc biệt")
       .required("Mật khẩu là bắt buộc"),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Mật khẩu xác nhận không khớp")
@@ -53,9 +49,9 @@ const RegisterForm = () => {
     validationSchema,
     onSubmit: (values) => {
       const users = JSON.parse(localStorage.getItem("users")) || [];
-      
+
       const isEmailExist = users.some(user => user.emailOrPhone === values.emailOrPhone);
-      
+
       if (isEmailExist) {
         setErrorMessage("Email đã tồn tại, vui lòng thử email khác.");
       } else {
@@ -63,7 +59,7 @@ const RegisterForm = () => {
         localStorage.setItem("users", JSON.stringify(users));
         setSuccessMessage("Đăng ký thành công!");
         setErrorMessage(null);
-        
+
         setTimeout(() => {
           navigate("/login");
         }, 2000);
