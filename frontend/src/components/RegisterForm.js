@@ -3,6 +3,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Dùng icon từ react-icons
+import '../assets/css/Register.css'
+
 
 const RegisterForm = () => {
   const [successMessage, setSuccessMessage] = useState(null);
@@ -74,90 +76,85 @@ const RegisterForm = () => {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={formik.handleSubmit}>
         <div className="form-group">
-          <label>Tên:</label>
           <input
             type="text"
             name="firstName"
             value={formik.values.firstName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            placeholder="Tên đầy đủ của bạn"
           />
           {formik.touched.firstName && formik.errors.firstName && (
             <p className="error-message">{formik.errors.firstName}</p>
           )}
         </div>
         <div className="form-group">
-          <label>Họ:</label>
           <input
             type="text"
             name="lastName"
             value={formik.values.lastName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            placeholder="Họ của bạn"
           />
           {formik.touched.lastName && formik.errors.lastName && (
             <p className="error-message">{formik.errors.lastName}</p>
           )}
         </div>
         <div className="form-group">
-          <label>Email hoặc Số điện thoại:</label>
           <input
             type="text"
             name="emailOrPhone"
             value={formik.values.emailOrPhone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            placeholder="Email hoặc Số điện thoại"
           />
           {formik.touched.emailOrPhone && formik.errors.emailOrPhone && (
             <p className="error-message">{formik.errors.emailOrPhone}</p>
           )}
         </div>
         <div className="form-group password-container">
-          <label>Mật khẩu:</label>
-          <div className="input-with-icon">
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            <span
-              className="icon"
-              onClick={() => setShowPassword(!showPassword)}
-              style={{ cursor: "pointer" }}
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </span>
-          </div>
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            placeholder="Mật khẩu"
+          />
+          <span
+            className="icon"
+            onClick={() => setShowPassword(!showPassword)}
+            style={{ cursor: "pointer" }}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
           {formik.touched.password && formik.errors.password && (
             <p className="error-message">{formik.errors.password}</p>
           )}
         </div>
         <div className="form-group password-container">
-          <label>Xác nhận mật khẩu:</label>
-          <div className="input-with-icon">
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              name="confirmPassword"
-              value={formik.values.confirmPassword}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            <span
-              className="icon"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              style={{ cursor: "pointer" }}
-            >
-              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-            </span>
-          </div>
+          <input
+            type={showConfirmPassword ? "text" : "password"}
+            name="confirmPassword"
+            value={formik.values.confirmPassword}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            placeholder="Xác nhận mật khẩu"
+          />
+          <span
+            className="icon"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            style={{ cursor: "pointer" }}
+          >
+            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
           {formik.touched.confirmPassword && formik.errors.confirmPassword && (
             <p className="error-message">{formik.errors.confirmPassword}</p>
           )}
         </div>
         <div className="form-group">
-          <label>Giới tính:</label>
           <select
             name="gender"
             value={formik.values.gender}
@@ -177,6 +174,9 @@ const RegisterForm = () => {
           Đăng ký
         </button>
       </form>
+      <p>
+        Đã có tài khoản? <button onClick={() => navigate("/login")}>Đăng nhập</button>
+      </p>
     </div>
   );
 };

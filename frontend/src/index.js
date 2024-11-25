@@ -6,6 +6,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import CSS của Bootstrap
 import 'bootstrap-icons/font/bootstrap-icons.css';
+// code mới cập nhật import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

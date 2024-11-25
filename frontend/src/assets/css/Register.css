@@ -1,0 +1,133 @@
+/* Container chính cho form đăng ký */
+.register-form-container {
+  max-width: 400px; /* Đặt chiều rộng tối đa tương tự login */
+  margin: 40px auto; /* Canh giữa theo chiều ngang và thêm khoảng cách trên dưới */
+  padding: 20px 25px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff; /* Màu nền trắng */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng nhẹ */
+  font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề form */
+h2 {
+  text-align: center;
+  color: #222; /* Màu chữ tiêu đề */
+  margin-bottom: 20px;
+  font-size: 24px; /* Cỡ chữ tương tự login */
+  font-weight: bold;
+}
+
+/* Phần tử nhóm form */
+.form-group {
+  margin-bottom: 15px; /* Khoảng cách giữa các nhóm */
+}
+
+/* Nhãn input */
+label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Input chung */
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 15px; /* Padding dễ nhìn hơn */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  outline: none;
+  border-color: #4CAF50; /* Màu xanh cho viền khi focus */
+}
+
+/* Nút Đăng ký */
+.register-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff; /* Màu xanh dương */
+  color: white; /* Màu chữ trắng */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+}
+
+/* Hiển thị lỗi */
+.error-message {
+  color: #ff0000; /* Màu đỏ */
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* Tin nhắn thành công */
+.success-message {
+  color: #28a745; /* Màu xanh lá */
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Căn chỉnh form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form .form-group + .form-group {
+  margin-top: 15px;
+}
+
+/* Container cho liên kết đăng nhập */
+.login-link-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.login-link {
+  color: #007bff; /* Màu xanh */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Hiệu ứng cho icon hiển thị mật khẩu */
+.password-container {
+  position: relative;
+}
+
+.password-container .icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.password-container .icon:hover {
+  color: #555;
+}
