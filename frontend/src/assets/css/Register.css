@@ -1,35 +1,41 @@
 /* Container chính cho form đăng ký */
 .register-form-container {
-  max-width: 400px; /* Đặt chiều rộng tối đa tương tự login */
-  margin: 40px auto; /* Canh giữa theo chiều ngang và thêm khoảng cách trên dưới */
-  padding: 20px 25px;
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 25px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #ffffff; /* Màu nền trắng */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng nhẹ */
-  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.register-form-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* Tiêu đề form */
 h2 {
   text-align: center;
-  color: #222; /* Màu chữ tiêu đề */
+  color: #333;
   margin-bottom: 20px;
-  font-size: 24px; /* Cỡ chữ tương tự login */
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* Phần tử nhóm form */
 .form-group {
-  margin-bottom: 15px; /* Khoảng cách giữa các nhóm */
+  margin-bottom: 15px; /* Khoảng cách giữa các nhóm input vừa đủ */
 }
 
 /* Nhãn input */
 label {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   color: #555;
-  margin-bottom: 5px;
+  margin-bottom: 6px; /* Khoảng cách ngắn hơn giữa label và input */
 }
 
 /* Input chung */
@@ -37,42 +43,45 @@ input[type="text"],
 input[type="password"],
 select {
   width: 100%;
-  padding: 12px 15px; /* Padding dễ nhìn hơn */
+  padding: 10px 12px; /* Padding vừa phải */
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  background-color: #f9f9f9;
   box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 select:focus {
   outline: none;
-  border-color: #4CAF50; /* Màu xanh cho viền khi focus */
+  border-color: #4CAF50;
+  background-color: #f1f1f1;
 }
 
 /* Nút Đăng ký */
 .register-button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff; /* Màu xanh dương */
-  color: white; /* Màu chữ trắng */
+  background-color: #007bff;
+  color: white;
   font-size: 16px;
   font-weight: bold;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .register-button:hover {
-  background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 /* Hiển thị lỗi */
 .error-message {
-  color: #ff0000; /* Màu đỏ */
+  color: #ff4d4d;
   font-size: 14px;
   margin-top: 5px;
   text-align: left;
@@ -80,7 +89,7 @@ select:focus {
 
 /* Tin nhắn thành công */
 .success-message {
-  color: #28a745; /* Màu xanh lá */
+  color: #28a745;
   font-size: 16px;
   margin-top: 10px;
   text-align: center;
@@ -93,7 +102,7 @@ form {
 }
 
 form .form-group + .form-group {
-  margin-top: 15px;
+  margin-top: 10px; /* Khoảng cách giữa các input tối ưu */
 }
 
 /* Container cho liên kết đăng nhập */
@@ -103,13 +112,17 @@ form .form-group + .form-group {
 }
 
 .login-link {
-  color: #007bff; /* Màu xanh */
+  color: #800080;
   text-decoration: none;
   font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .login-link:hover {
-  text-decoration: underline;
+  color: #4B0082;
+  transform: scale(1.1);
 }
 
 /* Hiệu ứng cho icon hiển thị mật khẩu */
@@ -120,7 +133,7 @@ form .form-group + .form-group {
 .password-container .icon {
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 12px;
   transform: translateY(-50%);
   font-size: 18px;
   color: #888;
@@ -131,4 +144,34 @@ form .form-group + .form-group {
 .password-container .icon:hover {
   color: #555;
 }
- 
+
+/* Định dạng cho phần đoạn văn */
+.login-text {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Nút đăng nhập */
+.login-button {
+  background-color: transparent;
+  color: #007bff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button:hover {
+  color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Điều chỉnh khoảng cách giữa "Đã có tài khoản?" và nút đăng nhập */
+.login-text button {
+  margin-left: 5px;
+}

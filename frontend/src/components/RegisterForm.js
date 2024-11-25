@@ -3,8 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Dùng icon từ react-icons
-import '../assets/css/Register.css'
-
+import "../assets/css/Register.css";
 
 const RegisterForm = () => {
   const [successMessage, setSuccessMessage] = useState(null);
@@ -13,15 +12,22 @@ const RegisterForm = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
+  const calculateAge = (birthDate) => {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   const validationSchema = Yup.object({
-    firstName: Yup.string()
+    fullName: Yup.string()
       .min(2, "Tên quá ngắn!")
       .max(50, "Tên quá dài!")
       .required("Tên là bắt buộc"),
-    lastName: Yup.string()
-      .min(2, "Họ quá ngắn!")
-      .max(50, "Họ quá dài!")
-      .required("Họ là bắt buộc"),
     emailOrPhone: Yup.string()
       .matches(
         /^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$|^\d{10,12}$/,
@@ -34,6 +40,14 @@ const RegisterForm = () => {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Mật khẩu xác nhận không khớp")
       .required("Xác nhận mật khẩu là bắt buộc"),
+    dateOfBirth: Yup.date()
+      .nullable()
+      .required("Ngày sinh là bắt buộc")
+      .test(
+        "is-18",
+        "Bạn phải trên 18 tuổi để đăng ký",
+        (value) => calculateAge(value) >= 18
+      ),
     gender: Yup.string()
       .oneOf(["Nam", "Nữ", "Khác"], "Giới tính không hợp lệ")
       .required("Giới tính là bắt buộc"),
@@ -41,18 +55,20 @@ const RegisterForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
+      fullName: "",
       emailOrPhone: "",
       password: "",
       confirmPassword: "",
+      dateOfBirth: "",
       gender: "",
     },
     validationSchema,
     onSubmit: (values) => {
       const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      const isEmailExist = users.some(user => user.emailOrPhone === values.emailOrPhone);
+      const isEmailExist = users.some(
+        (user) => user.emailOrPhone === values.emailOrPhone
+      );
 
       if (isEmailExist) {
         setErrorMessage("Email đã tồn tại, vui lòng thử email khác.");
@@ -78,27 +94,14 @@ const RegisterForm = () => {
         <div className="form-group">
           <input
             type="text"
-            name="firstName"
-            value={formik.values.firstName}
+            name="fullName"
+            value={formik.values.fullName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="Tên đầy đủ của bạn"
           />
-          {formik.touched.firstName && formik.errors.firstName && (
-            <p className="error-message">{formik.errors.firstName}</p>
-          )}
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            name="lastName"
-            value={formik.values.lastName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            placeholder="Họ của bạn"
-          />
-          {formik.touched.lastName && formik.errors.lastName && (
-            <p className="error-message">{formik.errors.lastName}</p>
+          {formik.touched.fullName && formik.errors.fullName && (
+            <p className="error-message">{formik.errors.fullName}</p>
           )}
         </div>
         <div className="form-group">
@@ -155,6 +158,18 @@ const RegisterForm = () => {
           )}
         </div>
         <div className="form-group">
+          <input
+            type="date"
+            name="dateOfBirth"
+            value={formik.values.dateOfBirth}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
+            <p className="error-message">{formik.errors.dateOfBirth}</p>
+          )}
+        </div>
+        <div className="form-group">
           <select
             name="gender"
             value={formik.values.gender}
@@ -174,8 +189,14 @@ const RegisterForm = () => {
           Đăng ký
         </button>
       </form>
-      <p>
-        Đã có tài khoản? <button onClick={() => navigate("/login")}>Đăng nhập</button>
+      <p className="login-text">
+        Đã có tài khoản?{" "}
+        <button
+          className="login-button"
+          onClick={() => navigate("/login")}
+        >
+          Đăng nhập
+        </button>
       </p>
     </div>
   );
