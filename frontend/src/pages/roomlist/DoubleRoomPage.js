@@ -102,7 +102,7 @@ const DoubleRoomPage = () => {
     setErrorMessage("");
 
     const totalAmount = selectedRooms.reduce((total, room) => {
-      const roomPrice = parseFloat(room.price.replace(' VND/đêm', '').replace(',', ''));
+      const roomPrice = parseInt(room.price.replace(' VND/đêm', '').replace(/,/g, ''), 10); // Sử dụng parseInt và loại bỏ dấu phẩy
       return total + roomPrice * room.quantity;
     }, 0);
 
@@ -135,7 +135,7 @@ const DoubleRoomPage = () => {
 
   const calculateTotalAmount = () => {
     return selectedRooms.reduce((total, room) => {
-      const roomPrice = parseFloat(room.price.replace(' VND/đêm', '').replace(',', ''));
+      const roomPrice = parseInt(room.price.replace(' VND/đêm', '').replace(/,/g, ''), 10); // Sử dụng parseInt và loại bỏ dấu phẩy
       return total + roomPrice * room.quantity;
     }, 0);
   };
@@ -228,32 +228,38 @@ const DoubleRoomPage = () => {
             <label>
               <input
                 type="radio"
-                name="payment"
                 value="credit"
+                checked={paymentMethod === 'credit'}
                 onChange={handlePaymentChange}
               />
-              Thanh toán qua thẻ
+              Thanh toán qua thẻ tín dụng
             </label>
             <label>
               <input
                 type="radio"
-                name="payment"
-                value="cash"
+                value="paypal"
+                checked={paymentMethod === 'paypal'}
                 onChange={handlePaymentChange}
               />
-              Thanh toán tiền mặt
+              Thanh toán qua PayPal
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="cash"
+                checked={paymentMethod === 'cash'}
+                onChange={handlePaymentChange}
+              />
+              Thanh toán khi nhận phòng
             </label>
           </div>
 
+          <button className="confirm-button" onClick={handleBooking}>
+            Xác nhận đặt phòng
+          </button>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          <div className="total-amount">
-            <p>Tổng số tiền: {calculateTotalAmount()} VND</p>
-          </div>
-
-          <button className="book-now-button" onClick={handleBooking}>
-            Đặt ngay
-          </button>
+          <h3>Tổng tiền: {calculateTotalAmount()} VND</h3>
         </div>
       </div>
     </div>
