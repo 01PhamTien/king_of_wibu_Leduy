@@ -1,0 +1,274 @@
+/* Danh sách khách sạn */
+.hotel-list {  
+    display: flex;  
+    justify-content: center; /* Căn giữa các thẻ */  
+    flex-wrap: wrap; /* Đảm bảo bố cục có thể xuống dòng khi không đủ không gian */  
+    gap: 20px; /* Khoảng cách đều giữa các thẻ */  
+    margin: 20px 0; /* Thêm khoảng cách bên ngoài */  
+}  
+
+/* Thẻ khách sạn */
+.hotel-card {  
+    background: #fff; /* Nền trắng cho thẻ */  
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Đường viền nhẹ xung quanh thẻ */  
+    border-radius: 12px; /* Bo tròn các góc */  
+    width: 280px; /* Đặt chiều rộng cố định cho thẻ */  
+    overflow: hidden; /* Đảm bảo nội dung không vượt ra ngoài thẻ */  
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt mà */  
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */  
+}  
+
+.hotel-card:hover {  
+    transform: translateY(-10px); /* Di chuyển nhẹ lên trên khi hover */  
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bóng đổ mạnh hơn khi hover */  
+}  
+
+.hotel-card img {  
+    width: 100%; /* Hình ảnh chiếm 100% chiều rộng của thẻ */  
+    height: 180px; /* Chiều cao cố định cho hình ảnh */  
+    object-fit: cover; /* Cắt hình ảnh để giữ tỷ lệ */  
+    border-top-left-radius: 12px; /* Bo tròn góc trên bên trái */  
+    border-top-right-radius: 12px; /* Bo tròn góc trên bên phải */  
+}  
+
+.hotel-card h2 {  
+    font-size: 18px; /* Kích thước chữ tiêu đề */  
+    margin: 15px 15px 10px; /* Khoảng cách bên trong */  
+    color: #2c3e50; /* Màu chữ xanh đậm sang trọng */  
+    font-weight: bold; /* In đậm chữ tiêu đề */  
+    text-align: center; /* Căn giữa tiêu đề */  
+}  
+
+.hotel-card p {  
+    font-size: 14px; /* Kích thước chữ cho thông tin khác */  
+    margin: 5px 15px; /* Khoảng cách bên trong */  
+    color: #7f8c8d; /* Màu chữ xám nhẹ nhàng */  
+    line-height: 1.6; /* Tăng khoảng cách dòng cho dễ đọc */  
+}  
+
+.book-button {  
+    display: block; /* Đặt nút nằm giữa */  
+    background-color: #007BFF; /* Màu nền xanh dương */  
+    color: white; /* Màu chữ trắng */  
+    border: none; /* Không có viền */  
+    border-radius: 6px; /* Bo tròn góc nút */  
+    padding: 12px 20px; /* Khoảng cách bên trong nút */  
+    margin: 15px auto; /* Khoảng cách bên ngoài, căn giữa */  
+    font-size: 16px; /* Cỡ chữ vừa phải */  
+    font-weight: bold; /* In đậm chữ trên nút */  
+    cursor: pointer; /* Hiệu ứng con trỏ khi hover */  
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng mượt mà */  
+    text-align: center;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng nhẹ cho nút */  
+}  
+
+.book-button:hover {  
+    background-color: #0056b3; /* Màu xanh đậm khi hover */  
+    transform: scale(1.05); /* Phóng to nhẹ nút khi hover */  
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bóng đổ mạnh hơn khi hover */  
+}  
+
+/* Tiêu đề trang */
+.header-title {  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font chữ hiện đại */  
+    font-size: 36px; /* Kích thước chữ lớn cho tiêu đề */  
+    font-weight: 700; /* Chữ đậm */  
+    color: #34495e; /* Màu xanh đậm tinh tế */  
+    text-align: center; /* Căn giữa tiêu đề */  
+    margin: 30px 0; /* Khoảng cách trên và dưới lớn hơn */  
+    letter-spacing: 1px; /* Tăng khoảng cách giữa các chữ cái */  
+    border-bottom: 2px solid #007BFF; /* Đường viền bên dưới */  
+    padding-bottom: 10px; /* Thêm khoảng cách bên dưới */  
+}  
+
+/* Responsive Design */
+@media (max-width: 768px) {  
+    .hotel-card {  
+        width: 100%; /* Chiều rộng đầy đủ trên màn hình nhỏ */  
+        margin: 10px; /* Thêm khoảng cách giữa các thẻ */  
+    }  
+}  
+
+@media (max-width: 600px) {  
+    .header-title {  
+        font-size: 28px; /* Giảm kích thước chữ tiêu đề cho màn hình nhỏ */  
+    }  
+    .hotel-card {  
+        margin: 15px auto; /* Căn giữa trên màn hình nhỏ */  
+    }  
+}  
+
+/* Các nút kiểu phòng */
+.room-type-buttons {  
+    display: flex;  
+    justify-content: center; /* Căn giữa các nút */  
+    gap: 20px; /* Khoảng cách giữa các nút */  
+    margin: 20px 0; /* Khoảng cách trên và dưới */  
+}  
+
+.room-type-buttons button {  
+    background-color: #e7e7e7; /* Nền xám nhẹ */  
+    color: #34495e; /* Màu chữ xanh đậm tinh tế */  
+    border: 2px solid #007BFF; /* Đường viền xanh dương */  
+    border-radius: 8px; /* Bo tròn góc nút */  
+    padding: 10px 20px; /* Khoảng cách bên trong nút */  
+    font-size: 16px; /* Kích thước chữ vừa phải */  
+    font-weight: bold; /* Chữ đậm */  
+    cursor: pointer; /* Hiệu ứng con trỏ khi hover */  
+    transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */  
+}  
+
+.room-type-buttons button.active {  
+    background-color: #007BFF; /* Nền xanh dương cho nút được chọn */  
+    color: white; /* Chữ trắng nổi bật */  
+}  
+
+.room-type-buttons button:hover {  
+    background-color: #0056b3; /* Nền xanh đậm hơn khi hover */  
+    color: white; /* Chữ trắng khi hover */  
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng đổ khi hover */  
+}  
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.modal-content li {
+    margin: 5px 0;
+}
+
+.close-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.close-button:hover {
+    background-color: #c82333;
+}
+
+/* Thông báo */
+.message {
+    background-color: #28a745; /* Màu nền xanh lá cho thông báo thành công */
+    color: white; /* Màu chữ trắng */
+    padding: 15px; /* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa chữ */
+    margin-top: 20px; /* Khoảng cách từ phần trên */
+    font-size: 18px; /* Kích thước chữ */
+    border-radius: 5px; /* Bo tròn các góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+    transition: background-color 0.3s, transform 0.2s ease-in-out; /* Hiệu ứng mượt mà */
+}
+
+/* Thông báo lỗi */
+.message.error {
+    background-color: #dc3545; /* Màu nền đỏ cho thông báo lỗi */
+    color: white; /* Màu chữ trắng */
+    border-color: #c82333; /* Đổi màu viền cho phù hợp */
+}
+
+/* Thông báo cảnh báo */
+.message.warning {
+    background-color: #ffc107; /* Màu nền vàng cho thông báo cảnh báo */
+    color: white; /* Màu chữ trắng */
+    border-color: #e0a800; /* Đổi màu viền cho phù hợp */
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.close-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.close-button:hover {
+    background-color: #c82333;
+}
