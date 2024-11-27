@@ -222,7 +222,7 @@ const HomePage = () => {
         <h3>Điểm đến hot nhất do Traveloka đề xuất</h3>  
         <div className="destination-grid">  
           {[  
-            { name: 'Đà Nẵng', imgSrc: '/images/24.jpg', hotels: '763 khách sạn' },
+            { name: 'Đà Nẵng', imgSrc: 'https://q-xx.bstatic.com/xdata/images/hotel/263x210/595548591.jpeg?k=01741bc3aef1a5233dd33794dda397083092c0215b153915f27ea489468e57a2&o=', hotels: '763 khách sạn' },
             { name: 'Nha Trang', imgSrc: 'https://q-xx.bstatic.com/xdata/images/hotel/263x210/595548591.jpeg?k=01741bc3aef1a5233dd33794dda397083092c0215b153915f27ea489468e57a2&o=', hotels: '560 khách sạn' },  
             { name: 'Phú Quốc', imgSrc: 'https://q-xx.bstatic.com/xdata/images/hotel/263x210/595548591.jpeg?k=01741bc3aef1a5233dd33794dda397083092c0215b153915f27ea489468e57a2&o=', hotels: '925 khách sạn' },
             { name: 'Vũng Tàu', imgSrc: 'https://via.placeholder.com/200x150?text=Vũng+Tàu', hotels: '380 khách sạn' },  
@@ -243,10 +243,6 @@ const HomePage = () => {
           ))}  
         </div>  
       </div>
-
-      
-
-
 
 
       </div>

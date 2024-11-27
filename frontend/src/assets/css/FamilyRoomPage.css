@@ -290,6 +290,30 @@ h3 {
     font-size: 18px; 
     margin-bottom: 10px;
 }
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar-custom {
+    flex: 2; /* Chiếm nhiều không gian hơn */
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .type-selector-custom {
+    flex: 1; /* Chiếm không gian nhỏ hơn */
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+  }
   
   
 
