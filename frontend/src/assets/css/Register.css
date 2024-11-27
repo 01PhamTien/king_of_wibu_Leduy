@@ -145,33 +145,37 @@ form .form-group + .form-group {
   color: #555;
 }
 
-/* Định dạng cho phần đoạn văn */
-.login-text {
+.login-link-container {
+  margin-top: 1.5rem;
   text-align: center;
   font-size: 16px;
-  color: #555;
-  margin-top: 20px;
+  display: flex; /* Hiển thị chữ và nút trên cùng một dòng */
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Khoảng cách giữa chữ và nút */
 }
 
-/* Nút đăng nhập */
-.login-button {
-  background-color: transparent;
-  color: #007bff;
+.text-static {
+  color: #333; /* Màu chữ tĩnh, dễ đọc */
+  font-weight: 500;
+}
+
+.link {
+  color: white;
+  background-color: #007bff; /* Màu xanh đậm */
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
   font-weight: bold;
-  border: none;
   cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-  font-size: 16px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-button:hover {
-  color: #0056b3;
-  transform: scale(1.05);
+.link:hover {
+  background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Điều chỉnh khoảng cách giữa "Đã có tài khoản?" và nút đăng nhập */
-.login-text button {
-  margin-left: 5px;
-}
+

@@ -56,6 +56,7 @@ const doubleRooms = [
     image: "https://acihome.vn/uploads/17/tieu-chuan-phong-ngu-khach-san-5-sao-tai-viet-nam.jpg",
     type: "Luxury",
   },
+  
 ];
 
 const DoubleRoomPage = () => {
@@ -66,10 +67,12 @@ const DoubleRoomPage = () => {
   const [customerInfo, setCustomerInfo] = useState({ name: '', phone: '', email: '', quantity: 1 });
   const [paymentMethod, setPaymentMethod] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isBookingSuccess, setIsBookingSuccess] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState({ rooms: [], totalAmount: 0 }); // State to store booking details
 
   const handleTypeChange = (type) => {
     setSelectedType(type);
-    setSelectedRooms([]); // Reset selected rooms when changing room type
+    setSelectedRooms([]);
   };
 
   const handleBookingClick = (room) => {
@@ -78,7 +81,7 @@ const DoubleRoomPage = () => {
       return;
     }
     setSelectedRooms([...selectedRooms, { ...room, quantity: 1 }]);
-    setIsModalVisible(true); // Show modal on click
+    setIsModalVisible(true);
   };
 
   const handleBooking = () => {
@@ -100,14 +103,19 @@ const DoubleRoomPage = () => {
     }
 
     setErrorMessage("");
-
     const totalAmount = selectedRooms.reduce((total, room) => {
-      const roomPrice = parseInt(room.price.replace(' VND/đêm', '').replace(/,/g, ''), 10); // Sử dụng parseInt và loại bỏ dấu phẩy
+      const roomPrice = parseInt(room.price.replace(' VND/đêm', '').replace(/,/g, ''), 10);
       return total + roomPrice * room.quantity;
     }, 0);
 
-    alert(`Đặt phòng thành công! Tổng số tiền: ${totalAmount} VND`);
-    setIsModalVisible(false); // Close modal after booking
+    // Store booking details in the state
+    setBookingDetails({
+      rooms: selectedRooms,
+      totalAmount: totalAmount,
+    });
+
+    setIsBookingSuccess(true);
+    setIsModalVisible(false);
   };
 
   const handleInputChange = (e) => {
@@ -135,7 +143,7 @@ const DoubleRoomPage = () => {
 
   const calculateTotalAmount = () => {
     return selectedRooms.reduce((total, room) => {
-      const roomPrice = parseInt(room.price.replace(' VND/đêm', '').replace(/,/g, ''), 10); // Sử dụng parseInt và loại bỏ dấu phẩy
+      const roomPrice = parseInt(room.price.replace(' VND/đêm', '').replace(/,/g, ''), 10);
       return total + roomPrice * room.quantity;
     }, 0);
   };
@@ -177,7 +185,6 @@ const DoubleRoomPage = () => {
         ))}
       </div>
 
-      {/* Modal */}
       <div className={`modal ${isModalVisible ? 'show' : ''}`}>
         <div className="modal-content">
           <span className="close-btn" onClick={() => setIsModalVisible(false)}>&times;</span>
@@ -225,33 +232,19 @@ const DoubleRoomPage = () => {
           </div>
 
           <div className="payment-method">
-            <label>
-              <input
-                type="radio"
-                value="credit"
-                checked={paymentMethod === 'credit'}
-                onChange={handlePaymentChange}
-              />
-              Thanh toán qua thẻ tín dụng
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="paypal"
-                checked={paymentMethod === 'paypal'}
-                onChange={handlePaymentChange}
-              />
-              Thanh toán qua PayPal
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="cash"
-                checked={paymentMethod === 'cash'}
-                onChange={handlePaymentChange}
-              />
-              Thanh toán khi nhận phòng
-            </label>
+            <label htmlFor="payment-method">Phương thức thanh toán:</label>
+            <select
+              id="payment-method"
+              value={paymentMethod}
+              onChange={handlePaymentChange}
+            >
+              <option value="" disabled>
+                Chọn phương thức thanh toán
+              </option>
+              <option value="credit">Thanh toán qua thẻ tín dụng</option>
+              <option value="paypal">Thanh toán qua PayPal</option>
+              <option value="cash">Thanh toán khi nhận phòng</option>
+            </select>
           </div>
 
           <button className="confirm-button" onClick={handleBooking}>
@@ -262,6 +255,26 @@ const DoubleRoomPage = () => {
           <h3>Tổng tiền: {calculateTotalAmount()} VND</h3>
         </div>
       </div>
+
+      {/* Success Notification */}
+      {isBookingSuccess && (
+        <div className="success-notification">
+          <h2>Đặt phòng thành công!</h2>
+          <p>Chúc mừng, bạn đã đặt phòng thành công. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</p>
+          <div className="booking-summary">
+            <h3>Thông tin đặt phòng:</h3>
+            {bookingDetails.rooms.map((room, index) => (
+              <div key={index}>
+                <p><strong>{room.name}</strong></p>
+                <p>Số lượng: {room.quantity}</p>
+                <p>Giá: {room.price}</p>
+              </div>
+            ))}
+            <h4>Tổng tiền: {bookingDetails.totalAmount} VND</h4>
+          </div>
+          <button onClick={() => setIsBookingSuccess(false)}>Đóng</button>
+        </div>
+      )}
     </div>
   );
 };
