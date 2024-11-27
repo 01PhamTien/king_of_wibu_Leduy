@@ -15,21 +15,23 @@ const Header = () => {
   const { setSearchResults } = useContext(SearchContext);
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false); // Thêm state để xác định nếu là admin
-  const [userName, setUserName] = useState(''); // Lưu tên người dùng
+  const [isAdmin, setIsAdmin] = useState(false); // Kiểm tra nếu người dùng là admin
+  const [userName, setUserName] = useState('');
 
+
+  
   useEffect(() => {
-    // Kiểm tra trạng thái đăng nhập khi component được render
+  
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (loggedInUser) {
       setIsLoggedIn(true);
-      setUserName(loggedInUser.name);  // Lấy tên người dùng từ localStorage
-      // Kiểm tra vai trò của người dùng
+      setUserName(loggedInUser.name);
       if (loggedInUser.role === 'admin') {
-        setIsAdmin(true);  // Nếu là admin, lưu lại trạng thái admin
+        setIsAdmin(true);
+        navigate('/AdminDashboard'); // Chuyển hướng admin đến trang quản trị
       }
     }
-  }, []);
+  }, [navigate]);
 
   const handleDateChange = (dates) => {
     const [start, end] = dates;
@@ -39,11 +41,11 @@ const Header = () => {
 
   const handleSearch = () => {
     if (!startDate || !guests || !rooms || !destination) {
-      alert('Please fill all the fields.');
+      alert('Vui lòng điền đầy đủ thông tin.');
       return;
     }
 
-    // Format the dates to 'YYYY-MM-DD'
+
     const formattedStartDate = startDate.toISOString().split('T')[0];
     const formattedEndDate = endDate ? endDate.toISOString().split('T')[0] : formattedStartDate;
 
@@ -52,11 +54,11 @@ const Header = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setSearchResults(data); // Store the search results in context
-        navigate('/search-results'); // Navigate to the search results page
+        setSearchResults(data); 
+        navigate('/search-results');
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error('Lỗi:', error);
       });
   };
 
@@ -82,21 +84,18 @@ const Header = () => {
           {!isLoggedIn && (
             <>
               <Link to="/register">
-                <i className="bi bi-person-plus"></i> Register
+                <i className="bi bi-person-plus"></i> Đăng ký
               </Link>
               <Link to="/login">
-                <i className="bi bi-box-arrow-in-right"></i> Sign In
+                <i className="bi bi-box-arrow-in-right"></i> Đăng nhập
               </Link>
             </>
           )}
           {isLoggedIn && (
-            <div className="welcome-message">
-              <span>Welcome, {userName}!</span> {/* Hiển thị tên người dùng khi đăng nhập */}
-              <div className="dropdown">
-                <button className="dropdown-toggle">Account</button>
-                <div className="dropdown-menu">
-                  <button onClick={handleLogout}>Logout</button>
-                </div>
+            <div className="welcome-message dropdown">
+              <span>Chào {userName}!</span> 
+              <div className="dropdown-menu">
+                <button onClick={handleLogout}>Đăng xuất</button>
               </div>
             </div>
           )}
@@ -104,41 +103,41 @@ const Header = () => {
       </div>
 
       <nav className="nav">
-        <Link to="/"><i className="bi bi-house"></i> Home</Link>
+        <Link to="/"><i className="bi bi-house"></i> Trang chủ</Link>
         <div className="dropdown">
           <Link className="dropdown-toggle">
-            <i className="bi bi-list-ul"></i> Room List
+            <i className="bi bi-list-ul"></i> Danh sách phòng
           </Link>
           <div className="dropdown-menu">
-            <Link to="/room-list/single">Single Rooms</Link>
-            <Link to="/room-list/double">Double Rooms</Link>
-            <Link to="/room-list/family">Family Rooms</Link>
+            <Link to="/room-list/single">Phòng đơn</Link>
+            <Link to="/room-list/double">Phòng đôi</Link>
+            <Link to="/room-list/family">Phòng gia đình</Link>
           </div>
         </div>
-        <Link to="/booking"><i className="bi bi-calendar-check"></i> Booking</Link>
-        <Link to="/news"><i className="bi bi-newspaper"></i> News</Link>
-        <Link to="/about"><i className="bi bi-info-circle"></i> About</Link>
-        <Link to="/contact"><i className="bi bi-envelope"></i> Contact</Link>
+        <Link to="/booking"><i className="bi bi-calendar-check"></i> Đặt phòng</Link>
+        <Link to="/news"><i className="bi bi-newspaper"></i> Tin tức</Link>
+        <Link to="/about"><i className="bi bi-info-circle"></i> Giới thiệu</Link>
+        <Link to="/contact"><i className="bi bi-envelope"></i> Liên hệ</Link>
       </nav>
 
       <div className="middle-text">
-        <p><i className="bi bi-search"></i> Find your next stay</p>
-        <p>Search low prices on hotels, homes, and much more...</p>
+        <p><i className="bi bi-search"></i> Tìm kiếm nơi ở tiếp theo của bạn</p>
+        <p>Tìm kiếm giá thấp cho khách sạn, nhà ở và nhiều hơn nữa...</p>
       </div>
 
       <div className="search-section">
         <div className="input-container">
-          <label>Destination</label>
+          <label>Điểm đến</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Destination (e.g., Phu Quoc)"
+            placeholder="Điểm đến (ví dụ: Phú Quốc)"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
           />
         </div>
         <div className="date-picker-container">
-          <label>Select Date</label>
+          <label>Chọn ngày</label>
           <DatePicker
             selected={startDate}
             onChange={handleDateChange}
@@ -148,13 +147,13 @@ const Header = () => {
             dateFormat="dd/MM/yyyy"
             className="form-control"
             minDate={new Date()}
-            placeholderText="Select Dates"
+            placeholderText="Chọn ngày"
             calendarClassName="custom-calendar"
           />
         </div>
         <div className="guests-room-container">
           <div className="input-container">
-            <label>Guests</label>
+            <label>Số khách</label>
             <input
               type="number"
               className="form-control"
@@ -164,7 +163,7 @@ const Header = () => {
             />
           </div>
           <div className="input-container">
-            <label>Rooms</label>
+            <label>Số phòng</label>
             <input
               type="number"
               className="form-control"
@@ -174,8 +173,8 @@ const Header = () => {
             />
           </div>
         </div>
-        <button className="btn btn-primary" onClick={handleSearch}>
-          <FaSearch /> Search
+        <button className="btn-search" onClick={handleSearch}>
+          <FaSearch /> Tìm kiếm
         </button>
       </div>
     </header>

@@ -1,0 +1,186 @@
+/* AdminDashboard.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  .admin-dashboard {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .admin-sidebar {
+    width: 250px;
+    background-color: #2d2d44;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+  }
+  
+  .admin-sidebar .dropdown {
+    margin-bottom: 15px;
+  }
+  
+  .admin-sidebar .dropdown-btn {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .admin-sidebar .dropdown-btn:hover {
+    background-color: #575775;
+  }
+  
+  .admin-sidebar .dropdown-content {
+    display: none;
+    margin-top: 5px;
+  }
+  
+  .admin-sidebar .dropdown-content button {
+    background-color: #575775;
+    color: #fff;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  
+  .admin-sidebar .dropdown-content button:hover {
+    background-color: #6a6a8a;
+  }
+  
+  .admin-sidebar .dropdown-btn:focus + .dropdown-content,
+  .admin-sidebar .dropdown-btn:hover + .dropdown-content {
+    display: block;
+  }
+  
+  .admin-sidebar button {
+    margin-top: auto;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .admin-sidebar button:hover {
+    background-color: #c9302c;
+  }
+  
+  .admin-main {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .admin-main h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  section ul li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  section ul li p {
+    margin: 5px 0;
+  }
+  
+  section ul li button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  section ul li button:hover {
+    background-color: #0056b3;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+  }
+  
+  form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  form button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  form button:hover {
+    background-color: #218838;
+  }
+  
+  

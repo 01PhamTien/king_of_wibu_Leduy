@@ -8,7 +8,7 @@ const hotels = [
     price: "1,000,000 VND/đêm",
     rating: 4.5,
     reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
+    image: "/images/111.jpg",
     type: "Phong vip",
   },
   {
@@ -17,73 +17,29 @@ const hotels = [
     price: "1,000,000 VND/đêm",
     rating: 4.5,
     reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
-    type: "Phong vip",
-  },{
-    name: "New Star Inn Boutique",
-    location: "TP. Hồ Chí Minh, Việt Nam",
-    price: "1,000,000 VND/đêm",
-    rating: 4.5,
-    reviews: 100,
-    image: "https://nhakhachcongdoan.com.vn/uploads/Phong/HinhAnhPhong/NQL_0063%20(1).jpg",
+    image: "/images/111.jpg",
     type: "Phong vip",
   },
+  {
+    name: "New Star Inn Boutique",
+    location: "TP. Hồ Chí Minh, Việt Nam",
+    price: "1,000,000 VND/đêm",
+    rating: 4.5,
+    reviews: 100,
+    image: "/images/111.jpg",
+    type: "Phong vip",
+  },
+  {
+    name: "New Star Inn Boutique",
+    location: "TP. Hồ Chí Minh, Việt Nam",
+    price: "1,000,000 VND/đêm",
+    rating: 4.5,
+    reviews: 100,
+    image: "/images/111.jpg",
+    type: "Phong vip",
+  },
+  
+
   {
     name: "Golden Pearl Luxury Hotel",
     location: "TP. HCM, Việt Nam",
@@ -117,70 +73,22 @@ const hotels = [
     reviews: 180,
     image: "https://anviethouse.vn/wp-content/uploads/2021/12/Phong-ngu-khach-san-indochine-2-1.png",
     type: "Phong thuong",
-  },{
-    name: "Golden Pearl Luxury Hotel",
-    location: "TP. HCM, Việt Nam",
-    price: "5,000,000 VND/đêm",
-    rating: 4.8,
-    reviews: 180,
-    image: "https://anviethouse.vn/wp-content/uploads/2021/12/Phong-ngu-khach-san-indochine-2-1.png",
-    type: "Phong thuong",
-  },{
-    name: "Golden Pearl Luxury Hotel",
-    location: "TP. HCM, Việt Nam",
-    price: "5,000,000 VND/đêm",
-    rating: 4.8,
-    reviews: 180,
-    image: "https://anviethouse.vn/wp-content/uploads/2021/12/Phong-ngu-khach-san-indochine-2-1.png",
-    type: "Phong thuong",
-  },{
-    name: "Golden Pearl Luxury Hotel",
-    location: "TP. HCM, Việt Nam",
-    price: "5,000,000 VND/đêm",
-    rating: 4.8,
-    reviews: 180,
-    image: "https://anviethouse.vn/wp-content/uploads/2021/12/Phong-ngu-khach-san-indochine-2-1.png",
-    type: "Phong thuong",
-  },{
-    name: "Golden Pearl Luxury Hotel",
-    location: "TP. HCM, Việt Nam",
-    price: "5,000,000 VND/đêm",
-    rating: 4.8,
-    reviews: 180,
-    image: "https://anviethouse.vn/wp-content/uploads/2021/12/Phong-ngu-khach-san-indochine-2-1.png",
-    type: "Phong thuong",
-  },{
-    name: "Golden Pearl Luxury Hotel",
-    location: "TP. HCM, Việt Nam",
-    price: "5,000,000 VND/đêm",
-    rating: 4.8,
-    reviews: 180,
-    image: "https://anviethouse.vn/wp-content/uploads/2021/12/Phong-ngu-khach-san-indochine-2-1.png",
-    type: "Phong thuong",
-  },{
-    name: "Golden Pearl Luxury Hotel",
-    location: "TP. HCM, Việt Nam",
-    price: "5,000,000 VND/đêm",
-    rating: 4.8,
-    reviews: 180,
-    image: "https://anviethouse.vn/wp-content/uploads/2021/12/Phong-ngu-khach-san-indochine-2-1.png",
-    type: "Phong thuong",
   },
+  // các phòng khác
 ];
 
 const FamilyRoomPage = () => {
-  const [selectedType, setSelectedType] = useState('Phong vip');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const [isLoggedIn] = useState(true);
   const [customerInfo, setCustomerInfo] = useState({ name: '', phone: '', email: '' });
   const [paymentMethod, setPaymentMethod] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
-  const handleTypeChange = (type) => {
-    setSelectedType(type);
-    setSelectedRooms([]);
-  };
+  const [searchQuery, setSearchQuery] = useState('');
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(10000000);
+  const [minRating, setMinRating] = useState(0);
+  const [selectedRoomType, setSelectedRoomType] = useState('all'); // 'all', 'vip', 'thuong'
 
   const handleBookingClick = (room) => {
     if (!isLoggedIn) {
@@ -248,26 +156,74 @@ const FamilyRoomPage = () => {
     }, 0);
   };
 
-  const filteredRooms = hotels.filter((room) => room.type === selectedType);
+  // Lọc các phòng theo tiêu chí tìm kiếm và loại phòng
+  const filteredRooms = hotels.filter((room) => {
+    const roomPrice = parseInt(room.price.replace(/[^\d]/g, ''), 10);
+    const matchesSearchQuery =
+      room.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      room.location.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesPrice = roomPrice >= minPrice && roomPrice <= maxPrice;
+    const matchesRating = room.rating >= minRating;
+    const matchesRoomType =
+      selectedRoomType === 'all' ||
+      (selectedRoomType === 'vip' && room.type === 'Phong vip') ||
+      (selectedRoomType === 'thuong' && room.type === 'Phong thuong');
+
+    return matchesSearchQuery && matchesPrice && matchesRating && matchesRoomType;
+  });
 
   return (
     <div className="family-room-page">
       <h1 className="header-title">Family Room Booking</h1>
 
-      {/* Lựa chọn loại phòng */}
-      <div className="room-type-buttons">
-        <button
-          onClick={() => handleTypeChange('Phong vip')}
-          className={selectedType === 'Phong vip' ? 'active' : ''}
-        >
-          Phòng Vip
-        </button>
-        <button
-          onClick={() => handleTypeChange('Phong thuong')}
-          className={selectedType === 'Phong thuong' ? 'active' : ''}
-        >
-          Phòng Thường
-        </button>
+      {/* Thanh tìm kiếm và bộ lọc */}
+      <div className="filters">
+        <input
+          type="text"
+          placeholder="Tìm kiếm phòng..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <div className="filter-group">
+          <label>
+            Giá từ:
+            <input
+              type="number"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
+              min="0"
+            />
+          </label>
+          <label>
+            Giá đến:
+            <input
+              type="number"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+            />
+          </label>
+          <label>
+            Đánh giá tối thiểu:
+            <input
+              type="number"
+              value={minRating}
+              onChange={(e) => setMinRating(e.target.value)}
+              min="0"
+              max="5"
+            />
+          </label>
+          <label>
+            Loại phòng:
+            <select
+              value={selectedRoomType}
+              onChange={(e) => setSelectedRoomType(e.target.value)}
+            >
+              <option value="all">Tất cả</option>
+              <option value="vip">Phòng VIP</option>
+              <option value="thuong">Phòng Thường</option>
+            </select>
+          </label>
+        </div>
       </div>
 
       {/* Danh sách phòng */}
@@ -290,18 +246,15 @@ const FamilyRoomPage = () => {
         )}
       </div>
 
-      {/* Modal đặt phòng */}
+      {/* Modal cho việc đặt phòng */}
       {isModalVisible && (
         <div className="modal show">
           <div className="modal-content">
             <span className="close-btn" onClick={() => setIsModalVisible(false)}>&times;</span>
             <h3>Thông tin đặt phòng</h3>
 
-            
-
             {selectedRooms.map((room, index) => (
               <div key={index} className="room-selection">
-                {/* <img src={room.image} alt={room.name} className="room-image" /> */}
                 <h4>{room.name}</h4>
                 <p>Giá: {room.price}</p>
                 <input
@@ -344,6 +297,7 @@ const FamilyRoomPage = () => {
               <label>
                 <input
                   type="radio"
+                  name="payment"
                   value="credit"
                   checked={paymentMethod === 'credit'}
                   onChange={handlePaymentChange}
@@ -353,35 +307,20 @@ const FamilyRoomPage = () => {
               <label>
                 <input
                   type="radio"
+                  name="payment"
                   value="paypal"
                   checked={paymentMethod === 'paypal'}
                   onChange={handlePaymentChange}
                 />
                 Thanh toán qua PayPal
               </label>
-              <label>
-                <input
-                  type="radio"
-                  value="cash"
-                  checked={paymentMethod === 'cash'}
-                  onChange={handlePaymentChange}
-                />
-                Thanh toán khi nhận phòng
-              </label>
             </div>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <button className="confirm-button" onClick={handleBooking}>
+            <button className="confirm-booking" onClick={handleBooking}>
               Xác nhận đặt phòng
             </button>
-
-            {/* Hiển thị tổng giá tiền trong modal */}
-            <div className="total-price">
-              <h2>
-                Tổng tiền: {calculateTotalAmount().toLocaleString('vi-VN')} VND
-              </h2>
-            </div>
           </div>
         </div>
       )}
