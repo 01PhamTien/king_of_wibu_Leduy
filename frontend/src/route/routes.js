@@ -8,13 +8,12 @@ import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import RoomDetailPage from '../pages/RoomDetailPage';
 
-
 import NewsPage from '../pages/NewsPage';
 import AuthLayout from '../components/AuthLayout'; 
-// import SearchResults from '../components/SearchResults';
 import SingleRoomPage from '../pages/roomlist/SingleRoomPage'; // Thêm các trang này
 import DoubleRoomPage from '../pages/roomlist/DoubleRoomPage'; 
 import FamilyRoomPage from '../pages/roomlist/FamilyRoomPage'; 
+import AdminDashboard from '../components/AdminDashboard'; // Import Admin Dashboard
 
 function AppRoutes() {
   return (
@@ -31,11 +30,13 @@ function AppRoutes() {
       <Route path="/room-list/family" element={<FamilyRoomPage />} />
 
       <Route path="/news" element={<NewsPage />} />
-      {/* <Route path="/search-results" element={<SearchResults />} /> */}
 
       {/* Đường dẫn Login và Register sử dụng AuthLayout */}
       <Route path="/login" element={<AuthLayout><LoginPage /></AuthLayout>} />
       <Route path="/register" element={<AuthLayout><RegisterPage /></AuthLayout>} />
+
+      {/* Thêm route cho Admin Dashboard */}
+      <Route path="/AdminDashboard" element={<AdminDashboard />} /> {/* Admin Dashboard route */}
     </Routes>
   );
 }
