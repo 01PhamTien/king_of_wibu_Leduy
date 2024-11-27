@@ -279,4 +279,4 @@ const DoubleRoomPage = () => {
   );
 };
 
-export default DoubleRoomPage;
+export default DoubleRoomPage; 
