@@ -12,7 +12,7 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 300,
+    autoplaySpeed: 1000,
   };
 
   return (
@@ -20,7 +20,7 @@ const Banner = () => {
       <Slider {...settings}>
         <div>
           <img 
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-75"
+            src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/09/1725851891803-f3c888664c5d10ee45d31cbfac375c2c.jpeg?tr=q-7"
             alt="Hotel Booking Banner 1"
             style={{ width: "100%", height: "auto" }}
           />

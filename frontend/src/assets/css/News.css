@@ -1,0 +1,75 @@
+.categories {
+    display: flex;
+    flex-wrap: wrap; /* Để các thẻ tự động xuống dòng nếu không đủ không gian */
+    justify-content: space-between; /* Căn đều khoảng cách giữa các thẻ */
+    gap: 20px; /* Khoảng cách giữa các thẻ */
+    padding: 20px; /* Thêm khoảng cách bên trong */
+  }
+  
+  .category-card {
+    flex: 1 1 calc(25% - 20px); /* Mỗi thẻ chiếm 25% chiều rộng trừ đi khoảng cách */
+    max-width: calc(25% - 20px);
+    min-width: 200px; /* Đảm bảo thẻ không quá nhỏ trên màn hình nhỏ */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .category-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #2c3e50;
+  }
+  
+  .category-card p {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên khi hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  .destinations {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    line-height: 1.8;
+  }
+  
+  .destination {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .da-nang-experience {
+    margin-top: 40px;
+    line-height: 1.8;
+  }
+  
+  .da-nang-experience h2, .da-nang-experience h3 {
+    margin-top: 20px;
+    color: #2c3e50;
+  }
+  
+  .da-nang-experience p {
+    margin: 10px 0;
+    color: #34495e;
+    font-size: 16px;
+  }
+  
+  
