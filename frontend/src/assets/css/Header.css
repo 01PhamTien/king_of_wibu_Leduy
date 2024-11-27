@@ -54,14 +54,36 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 30px; /* Điều chỉnh tùy theo vị trí hiển thị */
+  top: 90px; /* Điều chỉnh tùy theo vị trí hiển thị */
   right: 0;
   background-color: white;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 8px 16px;
+  padding: 8px 0; /* Giảm khoảng cách thừa */
   border-radius: 4px;
-  display: none;
+  display: flex;
+  flex-direction: column; /* Xếp các phần tử theo cột */
+  align-items: flex-start; /* Căn các mục về bên trái */
 }
+
+.dropdown-menu a {
+  display: block; /* Đảm bảo mỗi mục là một khối độc lập */
+  text-decoration: none;
+  font-size: 14px;
+  padding: 2px 6px;
+  color: black; /* Màu chữ */
+  font-weight: 900;
+  cursor: pointer;
+  width: 100%; /* Đảm bảo phần tử chiếm toàn chiều ngang */
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0; /* Hiệu ứng hover */
+}
+
+.welcome-message:hover .dropdown-menu {
+  display: block;
+}
+
 
 .welcome-message:hover .dropdown-menu {
   display: block;
