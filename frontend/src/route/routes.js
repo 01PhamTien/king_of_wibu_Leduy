@@ -11,7 +11,7 @@ import RoomDetailPage from '../pages/RoomDetailPage';
 
 import NewsPage from '../pages/NewsPage';
 import AuthLayout from '../components/AuthLayout'; 
-import SearchResults from '../components/SearchResults';
+// import SearchResults from '../components/SearchResults';
 import SingleRoomPage from '../pages/roomlist/SingleRoomPage'; // Thêm các trang này
 import DoubleRoomPage from '../pages/roomlist/DoubleRoomPage'; 
 import FamilyRoomPage from '../pages/roomlist/FamilyRoomPage'; 
@@ -31,7 +31,7 @@ function AppRoutes() {
       <Route path="/room-list/family" element={<FamilyRoomPage />} />
 
       <Route path="/news" element={<NewsPage />} />
-      <Route path="/search-results" element={<SearchResults />} />
+      {/* <Route path="/search-results" element={<SearchResults />} /> */}
 
       {/* Đường dẫn Login và Register sử dụng AuthLayout */}
       <Route path="/login" element={<AuthLayout><LoginPage /></AuthLayout>} />
