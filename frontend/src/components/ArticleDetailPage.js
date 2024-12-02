@@ -22,7 +22,7 @@ const articles = [
       <img src="https://danang-shopping.com/wp-content/uploads/2019/07/banner-website-cau-rong.jpg" alt="Cầu Vàng" class="anh">
     `,
     date: '01/12/2024',
-    author: 'Nguyễn Văn A',
+    author: 'Nguyễn Văn Định',
   },
   {
     title: 'Chuyến đi Nha Trang: Biển xanh, cát trắng',
@@ -40,7 +40,7 @@ const articles = [
       <p>Thành phố này nổi bật với các khu nghỉ dưỡng cao cấp, mang đến những trải nghiệm đẳng cấp cho du khách. Các khu resort như Vinpearl, Six Senses đều cung cấp các tiện nghi tuyệt vời và dịch vụ chăm sóc khách hàng xuất sắc.</p>
     `,
     date: '28/11/2024',
-    author: 'Trần Thị B',
+    author: 'Nguyễn Văn Định',
   },
   {
     title: 'Hà Nội - Thủ đô nghìn năm văn hiến',
@@ -58,7 +58,7 @@ const articles = [
       <p>Chùa Một Cột, với kiến trúc độc đáo, là một trong những di tích nổi tiếng của Hà Nội. Được xây dựng từ thời Lý, chùa thể hiện sự kết hợp hài hòa giữa văn hóa Phật giáo và kiến trúc dân gian Việt Nam.</p>
     `,
     date: '25/11/2024',
-    author: 'Lê Minh C',
+    author: 'Nguyễn Văn Định',
   },
    
   {
@@ -77,7 +77,7 @@ const articles = [
       <p>Du khách có thể tham gia các hoạt động như lặn biển, câu cá, và tham quan các khu du lịch sinh thái, vườn tiêu, và trang trại ngọc trai.</p>
     `,
     date: '18/11/2024',
-    author: 'Trương Hoàng L',
+    author: 'Nguyễn Văn Định',
   },
   {
     title: 'Sài Gòn - Thành phố không ngủ',
@@ -95,7 +95,7 @@ const articles = [
       <p>Sài Gòn cũng nổi tiếng với các món ăn đường phố hấp dẫn, như phở, hủ tiếu, bún thịt nướng, và đặc biệt là món bánh mì. Hãy thưởng thức ẩm thực phong phú và đa dạng tại các quán ăn vỉa hè, các khu chợ đêm.</p>
     `,
     date: '10/11/2024',
-    author: 'Nguyễn Thị D',
+    author: 'Nguyễn Văn Định',
   }, 
   {
     "title": "Ưu đãi vé máy bay Tết 2025",
@@ -112,7 +112,7 @@ const articles = [
       <blockquote>“Hãy đặt vé ngay để tận dụng mức giá thấp nhất cho mùa Tết này!”</blockquote>
     `,
     "date": "02/12/2024",
-    "author": "Nguyễn Thảo Linh"
+    "author": "Nguyễn Văn Định"
   },  
   {
     "title": "10 mẹo du lịch tiết kiệm chi phí",
@@ -131,7 +131,7 @@ const articles = [
       <p>Với những mẹo nhỏ này, bạn có thể tiết kiệm rất nhiều chi phí cho chuyến du lịch của mình mà vẫn có những trải nghiệm tuyệt vời.</p>
     `,
     "date": "01/12/2024",
-    "author": "Nguyễn Huyền Trang"
+    "author": "Nguyễn Văn Định"
   },  
 
   {
@@ -151,7 +151,7 @@ const articles = [
       <p>Chọn đúng khách sạn phù hợp với ngân sách là một trong những yếu tố quan trọng giúp chuyến du lịch của bạn trở nên trọn vẹn và tiết kiệm.</p>
     `,
     "date": "28/11/2024",
-    "author": "Trần Văn Khoa"
+    "author": "Nguyễn Văn Định"
   },  
   
 ];
