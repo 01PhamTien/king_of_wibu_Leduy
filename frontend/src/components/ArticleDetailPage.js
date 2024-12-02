@@ -47,7 +47,7 @@ const articles = [
     images: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJPuxpVTdiqXbTLggSyOcZKg4CRqcdu5fXgQ&s', 
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhBCpZAmqOji-u-zBLv1Z5Xe7ItLs_G63w4w&s', 
-      '/images/ha-noi-3.jpg'
+      'https://cdnmedia.baotintuc.vn/Upload/CCcQv1fjdlI5Hob1jh0mA/files/2020/10/04/IMG_0505.JPG'
     ], 
     description: 'Hà Nội là thành phố có lịch sử lâu dài, với những di tích cổ kính và những món ăn đường phố đặc trưng.',
     content: `
@@ -97,55 +97,108 @@ const articles = [
     date: '10/11/2024',
     author: 'Nguyễn Thị D',
   }, 
+  {
+    "title": "Ưu đãi vé máy bay Tết 2025",
+    "images": [
+      "https://vegiagoc.com/Upload/images/ve-may-bay-tet-2025-di-hue-gia-cuc-tot-1.jpg"
+    ],
+    "description": "Săn vé máy bay giá rẻ dịp Tết với ưu đãi lớn từ các hãng hàng không.",
+    "content": `
+      <h2>Chương trình ưu đãi</h2>
+      <p>Giảm giá đến 50% trên các chặng bay nội địa. Bạn cũng có thể nhận voucher hoàn tiền lên đến 200,000 VNĐ khi đặt vé qua các ứng dụng đối tác.</p>
+      <img src="https://vietnam-tickets.com/images/ve-may-bay-tet-2025-4.gif" alt="Chương trình ưu đãi vé máy bay Tết" class="anh">
+      <h2>Cách săn vé giá rẻ</h2>
+      <p>Đặt vé sớm ít nhất 2 tháng trước Tết để tránh tình trạng hết vé, và theo dõi các chương trình flash sale để nhận mức giá tốt nhất.</p>
+      <blockquote>“Hãy đặt vé ngay để tận dụng mức giá thấp nhất cho mùa Tết này!”</blockquote>
+    `,
+    "date": "02/12/2024",
+    "author": "Nguyễn Thảo Linh"
+  },  
+  {
+    "title": "10 mẹo du lịch tiết kiệm chi phí",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZe7EFILTIAQfOnqZ97WznQv7BuCL0lNobg&s"
+    ],
+    "description": "Tận dụng các mẹo hữu ích để tiết kiệm chi phí cho chuyến du lịch của bạn.",
+    "content": `
+      <h2>Mẹo 1: Đặt vé sớm</h2>
+      <p>Đặt vé máy bay và khách sạn trước ít nhất 2-3 tháng để nhận giá ưu đãi.</p>
+      <h2>Mẹo 2: Chọn điểm đến ít nổi tiếng</h2>
+      <p>Những địa điểm ít nổi tiếng không chỉ tiết kiệm chi phí mà còn mang lại những trải nghiệm mới lạ.</p>
+      <h2>Mẹo 3: Sử dụng phương tiện công cộng</h2>
+      <p>Thay vì taxi hoặc dịch vụ xe riêng, hãy chọn xe buýt hoặc tàu điện để tiết kiệm chi phí đi lại.</p>
+      <h2>Kết luận</h2>
+      <p>Với những mẹo nhỏ này, bạn có thể tiết kiệm rất nhiều chi phí cho chuyến du lịch của mình mà vẫn có những trải nghiệm tuyệt vời.</p>
+    `,
+    "date": "01/12/2024",
+    "author": "Nguyễn Huyền Trang"
+  },  
+
+  {
+    "title": "Cách chọn khách sạn phù hợp với ngân sách",
+    "images": [
+      "https://cdn-kfcff.nitrocdn.com/JOhfqzIngfwJwqHdKpFveKRwEIgjfSJW/assets/images/optimized/rev-a7e77c4/dodungkhachsancaocap.vn/wp-content/uploads/2023/10/tieu-chi-lua-chon-khach-san.jpg"
+    ],
+    "description": "Hướng dẫn chi tiết để chọn khách sạn tốt nhất với ngân sách của bạn.",
+    "content": `
+      <h2>Mẹo 1: Xác định ngân sách trước khi đặt phòng</h2>
+      <p>Đặt ra ngân sách cụ thể để tránh chi tiêu vượt quá khả năng của mình khi chọn khách sạn.</p>
+      <h2>Mẹo 2: Xem xét vị trí của khách sạn</h2>
+      <p>Chọn khách sạn gần các điểm tham quan hoặc khu vực thuận tiện đi lại để tiết kiệm chi phí vận chuyển.</p>
+      <h2>Mẹo 3: So sánh giá trên các nền tảng khác nhau</h2>
+      <p>Sử dụng các trang web so sánh giá để tìm mức giá tốt nhất cho khách sạn mong muốn.</p>
+      <h2>Kết luận</h2>
+      <p>Chọn đúng khách sạn phù hợp với ngân sách là một trong những yếu tố quan trọng giúp chuyến du lịch của bạn trở nên trọn vẹn và tiết kiệm.</p>
+    `,
+    "date": "28/11/2024",
+    "author": "Trần Văn Khoa"
+  },  
   
 ];
 
 
 const ArticleDetailPage = () => {
-  const { title } = useParams(); // Lấy tham số 'title' từ URL
+  const { title } = useParams(); // Get 'title' from URL
 
-  // Hàm để loại bỏ dấu và chuyển sang chữ thường
+  // Function to normalize the string (remove accents and spaces)
   const normalizeString = (str) => {
     return str
-      .toLowerCase() // Chuyển thành chữ thường
-      .normalize('NFD') // Loại bỏ dấu
-      .replace(/[\u0300-\u036f]/g, '') // Xóa dấu
-      .replace(/\s+/g, '-'); // Thay đổi khoảng trắng thành dấu gạch nối
+      .toLowerCase()
+      .normalize('NFD') 
+      .replace(/[\u0300-\u036f]/g, '') 
+      .replace(/\s+/g, '-'); 
   };
 
-  // Tìm bài viết dựa trên tiêu đề
+  // Find the article based on the title parameter
   const article = articles.find((article) =>
     normalizeString(article.title) === normalizeString(title)
   );
 
   if (!article) {
-    return <div>Không tìm thấy bài viết này.</div>;
+    return <div>Không tìm thấy bài viết này.</div>; // Article not found
   }
 
   return (
-    <div className="article-detail-page">
-      <header className="article-header">
-        <h1>{article.title}</h1>
-        <p><strong>Ngày:</strong> {article.date}</p>
-        <p><strong>Tác giả:</strong> {article.author}</p>
-      </header>
+    <div className="article-detail">
+      <h1>{article.title}</h1>
+      <div className="article-meta">
+        <span>{article.author}</span> | <span>{article.date}</span>
+      </div>
+      <div className="article-description">
+        <p>{article.description}</p>
+      </div>
 
-      {/* Hiển thị 3 ảnh theo layout báo */}
+      {/* Hiển thị ảnh dưới phần mô tả */}
       <div className="article-images">
-        {article.images.map((image, index) => (
-          <img key={index} src={image} alt={`${article.title} - ${index + 1}`} className="article-image" />
+        {article.images && article.images.slice(0, 3).map((img, index) => (
+          <img key={index} src={img} alt={`Article Image ${index + 1}`} className="article-main-image"/>
         ))}
       </div>
 
-      {/* Mô tả bài viết */}
-      <section className="article-description">
-        <p>{article.description}</p>
-      </section>
-
-      {/* Hiển thị nội dung bài viết, sử dụng dangerouslySetInnerHTML */}
-      <section className="article-content" dangerouslySetInnerHTML={{ __html: article.content }} />
+      <div className="article-content" dangerouslySetInnerHTML={{ __html: article.content }} />
     </div>
   );
 };
+
 
 export default ArticleDetailPage;
