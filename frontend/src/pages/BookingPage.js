@@ -12,6 +12,17 @@ const BookingPage = () => {
     }
   }, []);
 
+  const handleDeleteRoom = (index) => {
+    // Create a new array with the selected room removed
+    const updatedRooms = bookedRooms.filter((_, i) => i !== index);
+
+    // Update the state
+    setBookedRooms(updatedRooms);
+
+    // Update the localStorage with the new rooms list
+    localStorage.setItem("bookedRooms", JSON.stringify(updatedRooms));
+  };
+
   return (
     <div className="booking-page">
       <h1 className="header-title">Trang Đặt Phòng</h1>
@@ -25,6 +36,7 @@ const BookingPage = () => {
               <p>{room.location}</p>
               <p className="price">Giá từ: {room.price}</p>
               <p>Số lượng: {room.quantity}</p>
+              <button className="delete-btn" onClick={() => handleDeleteRoom(index)}>Xóa</button>
             </div>
           ))}
         </div>
