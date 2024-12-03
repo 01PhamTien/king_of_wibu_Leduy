@@ -76,8 +76,13 @@ const Header = () => {
       <div className="header-top">
         <div className="logo">
           <Link to="/">
-            <i className="bi bi-house-door-fill"></i>
-            BOOKING.COM
+            <img
+          src="/images/LogoWibu.png"
+          alt="Logo"
+          className="logo-image"
+          />
+
+            KING OF WIBU
           </Link>
         </div>
         <div className="auth-buttons">

@@ -1,5 +1,5 @@
-// src/components/BookingModal.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import "../assets/css/bookingModule.css";
 
 const BookingModal = ({
   isModalVisible,
@@ -12,8 +12,25 @@ const BookingModal = ({
   setPaymentMethod,
   handleBooking,
   errorMessage,
-  calculateTotalAmount
+  isBookingConfirmed,  // Nhận prop isBookingConfirmed
+  isHidden,  // Nhận prop isHidden
 }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    setIsLoggedIn(loggedInUser ? true : false);
+  }, []);
+
+  useEffect(() => {
+    const calculatedTotal = selectedRooms.reduce((total, room) => {
+      const roomPrice = parseInt(room.price.replace(/[^\d]/g, ""), 10);
+      return total + roomPrice * room.quantity;
+    }, 0);
+    setTotalAmount(calculatedTotal);
+  }, [selectedRooms]);
+
   const handleRoomQuantityChange = (index, quantity) => {
     if (quantity <= 0 || isNaN(quantity)) {
       alert("Số lượng phòng phải lớn hơn 0.");
@@ -51,6 +68,12 @@ const BookingModal = ({
             </button>
           </div>
           <div className="modal-body">
+            {!isLoggedIn && (
+              <div className="login-message">
+                <p>Bạn chưa đăng nhập. Vui lòng đăng nhập để tiếp tục.</p>
+              </div>
+            )}
+
             <div className="selected-rooms">
               {selectedRooms.map((room, index) => (
                 <div className="room-info" key={index}>
@@ -128,13 +151,25 @@ const BookingModal = ({
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
             <div className="total-amount">
-              <p>Tổng tiền: {calculateTotalAmount()} VND</p>
+              <p>Tổng tiền: {totalAmount} VND</p>
             </div>
 
-            <button className="confirm-btn" onClick={handleBooking}>
+            <button
+              className="confirm-btn"
+              onClick={handleBooking}
+              disabled={!isLoggedIn}
+            >
               Xác nhận
             </button>
           </div>
+
+          {/* Hiển thị thông báo đặt phòng thành công */}
+          {isBookingConfirmed && !isHidden && (
+            <div className="booking-confirmation">
+              <h2>Đặt phòng thành công!</h2>
+              <p>Cảm ơn bạn đã đặt phòng tại khách sạn của chúng tôi.</p>
+            </div>
+          )}
         </div>
       </div>
     )

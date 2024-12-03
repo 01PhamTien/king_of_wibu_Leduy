@@ -388,3 +388,15 @@
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
+.logo-image {
+  width: 50px; /* Điều chỉnh kích thước của ảnh */
+  height: 50px; /* Điều chỉnh kích thước của ảnh */
+  border-radius: 50%; /* Làm cho ảnh thành hình tròn */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo mó */
+  filter: grayscale(100%); /* Nếu muốn ảnh có màu xám */
+  margin-right: 10px;  
+}
+
+.logo-image:hover {
+  filter: grayscale(0%); /* Khi di chuột qua sẽ phục hồi màu ảnh */
+}

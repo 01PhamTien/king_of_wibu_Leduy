@@ -27,7 +27,7 @@ const LoginForm = () => {
 
       if (user) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        navigate("/x");
+        navigate("/");
       } else {
         setErrorMessage("Tên đăng nhập hoặc mật khẩu không hợp lệ");
       }
