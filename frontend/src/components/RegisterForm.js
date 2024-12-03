@@ -78,8 +78,18 @@ const RegisterForm = () => {
     },
   });
 
-  return (
+  return (  
     <div>
+      {/* Header */}
+      <header className="custom-header">
+  <div className="custom-logo-container" onClick={() => navigate("/")}>
+    <i className="bi bi-house-door-fill custom-home-icon"></i>
+    <span className="custom-brand-name">BOOKING.COM</span>
+  </div>
+  
+</header>
+
+
       {/* Nội dung form */}
       <div className="register-form-container">
         <h2>Tạo tài khoản mới</h2>

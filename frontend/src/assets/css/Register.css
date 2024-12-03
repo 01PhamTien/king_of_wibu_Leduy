@@ -219,3 +219,40 @@ form .form-group + .form-group {
 }
 
 
+/* Header */
+.custom-header {
+  background-color: #BDD8FF; /* Màu nền header */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #003366; /* Màu chữ */
+}
+
+/* Logo Container */
+.custom-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-home-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.custom-brand-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Flag Container */
+.flag-container {
+  display: flex;
+  align-items: center;
+}
+
+.vn-flag {
+  width: 30px; /* Adjust the size of the flag */
+  height: 20px;
+}

@@ -34,8 +34,25 @@ const LoginForm = () => {
     }
   };
 
+  // Handle navigation to Home page
+  const handleHomeClick = () => {
+    navigate("/"); // Điều hướng về trang Home
+  };
+
   return (
     <div>
+      {/* Header with logo and buttons */}
+      <header className="custom-header">
+        <div className="custom-logo-container" onClick={() => navigate("/")}>
+          <i className="bi bi-house-door-fill custom-home-icon"></i>
+          <span className="custom-brand-name">BOOKING.COM</span>
+        </div>
+      </header>
+
+
+
+
+
       {/* Nội dung form */}
       <div className="login-form-container">
         <h2>Đăng nhập hoặc tạo tài khoản</h2>
