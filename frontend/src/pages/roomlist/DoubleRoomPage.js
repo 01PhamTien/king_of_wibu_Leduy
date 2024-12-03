@@ -295,6 +295,7 @@ const DoubleRoomPage = () => {
                   <option value="credit">Thẻ tín dụng</option>
                   <option value="paypal">PayPal</option>
                   <option value="bank">Chuyển khoản ngân hàng</option>
+                  <option value="tienmat">Thanh toán khi nhận phòng</option>
                 </select>
               </div>
 
