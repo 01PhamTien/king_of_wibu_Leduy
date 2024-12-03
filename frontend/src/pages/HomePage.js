@@ -50,6 +50,10 @@ const HomePage = () => {
       };
     });
   };
+  const handleDoubleClick = (roomId) => {
+    // Chuyển hướng đến trang chi tiết phòng khi click đôi
+    window.location.href = `/room/${roomId}`;
+  };
 
   // Hàm tính tổng giá
   const calculateTotalPrice = () => {
@@ -91,7 +95,7 @@ const HomePage = () => {
       address: '',
       phone: '',
       paymentMethod: '', // Để trống lại sau khi đặt hàng
-      quantity: 1,
+quantity: 1,
     });
   };
 
@@ -102,8 +106,9 @@ const HomePage = () => {
         <div className="hotel-list">
           <h3>Bạn có còn quan tâm đến những chỗ nghỉ này?</h3>
           <div className="hotel-grid">
-            {rooms.slice(0, 16).map((room) => (
-              <div className="hotel-item" key={room.id}>
+          {rooms.slice(4, 8).map((room) => (
+            <div className="hotel-item" key={room.id} onDoubleClick={() => handleDoubleClick(room.id)}>
+
                 <img
                   src={room.image}
                   alt={`Room ${room.id}`}
@@ -173,7 +178,7 @@ const HomePage = () => {
                 onChange={(e) =>
                   setOrderInfo({ ...orderInfo, phone: e.target.value })
                 }
-                />
+/>
               <select
                 value={orderInfo.paymentMethod}
                 onChange={(e) =>
