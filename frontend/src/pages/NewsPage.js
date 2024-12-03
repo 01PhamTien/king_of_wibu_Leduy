@@ -109,7 +109,7 @@ const NewsPage = () => {
 
   return (
     <div className="news-page">
-      <section className="search-section">
+      <section className="search-section-2">
         <input
           type="text"
           value={searchQuery}
