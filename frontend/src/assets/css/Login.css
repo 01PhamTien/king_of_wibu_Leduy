@@ -180,7 +180,6 @@ form .form-group + .form-group {
 .custom-logo-container {
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 /* Custom logo */
@@ -240,7 +239,8 @@ form .form-group + .form-group {
   padding: 15px 20px;
   background-color: #fff; /* Màu nền header */
   border-bottom: 1px solid #ddd; /* Đường kẻ phân cách */
-  z-index: 10; /* Cho hiển thị trên form nếu cần */
+  width: 100%; /* Chiều rộng full màn hình */
+  box-sizing: border-box; /* Bao gồm cả padding trong kích thước */
 }
 
 .custom-logo-container {
@@ -258,9 +258,4 @@ form .form-group + .form-group {
   font-size: 20px;
   font-weight: bold;
   color: #333;
-}
-
-/* Bảo đảm header không cố định */
-.custom-header {
-  position: relative; /* Không cố định, nên bị ẩn khi cuộn */
 }

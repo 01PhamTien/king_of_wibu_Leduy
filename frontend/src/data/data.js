@@ -136,13 +136,8 @@ const rooms = [
   },
   { 
     id: 16, 
-<<<<<<< HEAD
     name: 'Love Hotel', 
     address: 'Hue, Việt Nam', 
-=======
-    name: 'Love Hotel',
-address: 'Hue, Việt Nam', 
->>>>>>> 8caf0898ee932ee97ca569da7d6c37b17b1b4a74
     price: '2,000,000 VND', 
     rating: 4.2, 
     reviews: 180, 
