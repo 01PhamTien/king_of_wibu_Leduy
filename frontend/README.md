@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Frontend Project : KING OF WIBU
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Mô tả
+Đây là một dự án frontend sử dụng React.js để xây dựng giao diện người dùng. 
+Dự án được thiết kế để hiển thị đề tài đặt phòng khách sạn
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Công nghệ và thư viện sử dụng
 
-### `npm start`
+### Ngôn ngữ
+- **JavaScript**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Thư viện chính
+- **React**: Thư viện chính để xây dựng giao diện người dùng.
+- **React Router Dom**: Quản lý routing trong ứng dụng SPA.
+- **Axios**: Gửi yêu cầu HTTP và xử lý API.
+- **Formik**: Hỗ trợ xây dựng biểu mẫu đơn giản và hiệu quả.
+- **Yup**: Xác thực dữ liệu biểu mẫu.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Giao diện
+- **Bootstrap**: Thiết kế giao diện nhanh chóng và hiện đại.
+- **Bootstrap Icons**: Bộ biểu tượng tích hợp sẵn.
+- **React Icons**: Cung cấp các biểu tượng phong phú cho giao diện.
+- **React Slick** và **Slick Carousel**: Tạo carousel đẹp mắt.
 
-### `npm test`
+### Xử lý ngày tháng
+- **React Datepicker**: Công cụ chọn ngày tháng trực quan.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tối ưu hiệu suất
+- **Web Vitals**: Đánh giá hiệu suất của ứng dụng.
 
-### `npm run build`
+### DevDependencies
+- **ESLint**: Kiểm tra và cải thiện chất lượng mã nguồn.
+- **Babel Plugins**: Hỗ trợ cú pháp JavaScript hiện đại.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Hướng dẫn cài đặt và chạy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Lệnh Cài Đặt
 
-### `npm run eject`
+Để cài đặt tất cả các thư viện cần thiết cho dự án, bạn có thể sử dụng lệnh sau:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install bootstrap react-datepicker react-icons react-router-dom react-slick slick-carousel web-vitals
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Hướng Dẫn Tải Dự Án Về và Chạy
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Mở thư mục dự án**:
+   ```bash
+   cd frontend
+   ```
 
-## Learn More
+2. **Cài Đặt Các thư viện package**: Chạy lệnh sau để cài đặt tất cả các thư viện cần thiết:
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Chạy Dự Án**: Sử dụng lệnh sau trên Terminal để khởi động websize:
+   ```bash
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Mở Trình Duyệt**: Truy cập vào `http://localhost:3000` (hoặc cổng mà Vite thông báo) để xem .
 
-### Code Splitting
+## Lưu Ý Khi Chạy Dự Án
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Đảm bảo rằng bạn đã cài đặt Node.js và npm trên máy tính của mình.
+- Nếu gặp lỗi liên quan đến các thư viện, hãy kiểm tra phiên bản của Node.js và npm.
+- Đảm bảo rằng bạn đã cài đặt tất cả các phụ thuộc cần thiết bằng cách chạy `npm install`.
 
-### Analyzing the Bundle Size
+### Cấu trúc thư mục
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+frontend/
+├── public/         # Tài nguyên tĩnh (ảnh, favicon, HTML...)
+├── src/  
+│   ├── assets/     #Chứa các tệp CSS để định dạng giao diện.
+│   ├── components/ #Các component nhỏ được dùng chung trong nhiều nơi.
+│   ├── context/    #Quản lý dữ liệu chia sẻ giữa các component với Context API.
+│   ├── data/       #Lưu trữ các tệp dữ liệu tạm thời hoặc dữ liệu mẫu.
+│   └── page/       #Các thành phần React đại diện cho từng trang giao diện.
+│   └── route/      #Xử lý các đường dẫn (routes) của ứng dụng.
+├── App.js          #File gốc của ứng dụng React.
+├── index.js        #Entry point để render ứng dụng React vào DOM.
+├── package.json    # Danh sách phụ thuộc và script
+└── README.md       # Tài liệu hướng dẫn
