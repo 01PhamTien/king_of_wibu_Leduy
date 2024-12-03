@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaSearch } from 'react-icons/fa';
@@ -14,21 +14,19 @@ const Header = () => {
   const [destination, setDestination] = useState('');
   const { setSearchResults } = useContext(SearchContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false); // Kiểm tra nếu người dùng là admin
+  const [isAdmin, setIsAdmin] = useState(false);
   const [userName, setUserName] = useState('');
 
-
-  
   useEffect(() => {
-  
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (loggedInUser) {
       setIsLoggedIn(true);
       setUserName(loggedInUser.name);
       if (loggedInUser.role === 'admin') {
         setIsAdmin(true);
-        navigate('/AdminDashboard'); // Chuyển hướng admin đến trang quản trị
+        navigate('/AdminDashboard');
       }
     }
   }, [navigate]);
@@ -45,7 +43,6 @@ const Header = () => {
       return;
     }
 
-
     const formattedStartDate = startDate.toISOString().split('T')[0];
     const formattedEndDate = endDate ? endDate.toISOString().split('T')[0] : formattedStartDate;
 
@@ -54,7 +51,7 @@ const Header = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setSearchResults(data); 
+        setSearchResults(data);
         navigate('/search-results');
       })
       .catch((error) => {
@@ -71,17 +68,14 @@ const Header = () => {
     navigate('/login');
   };
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <header className="header">
       <div className="header-top">
         <div className="logo">
           <Link to="/">
-            <img
-          src="/images/LogoWibu.png"
-          alt="Logo"
-          className="logo-image"
-          />
-
+            <img src="/images/LogoWibu.png" alt="Logo" className="logo-image" />
             KING OF WIBU
           </Link>
         </div>
@@ -98,7 +92,7 @@ const Header = () => {
           )}
           {isLoggedIn && (
             <div className="welcome-message dropdown">
-              <span>Chào {userName}!</span> 
+              <span>Chào {userName}!</span>
               <div className="dropdown-menu">
                 <button onClick={handleLogout}>Đăng xuất</button>
               </div>
@@ -125,63 +119,67 @@ const Header = () => {
         <Link to="/contact"><i className="bi bi-envelope"></i> Liên hệ</Link>
       </nav>
 
-      <div className="middle-text">
-        <p><i className="bi bi-search"></i> Tìm kiếm nơi ở tiếp theo của bạn</p>
-        <p>Tìm kiếm giá thấp cho khách sạn, nhà ở và nhiều hơn nữa...</p>
-      </div>
+      {isHomePage && (
+        <div className="middle-text">
+          <p><i className="bi bi-search"></i> Tìm kiếm nơi ở tiếp theo của bạn</p>
+          <p>Tìm kiếm giá thấp cho khách sạn, nhà ở và nhiều hơn nữa...</p>
+        </div>
+      )}
 
-      <div className="search-section">
-        <div className="input-container">
-          <label>Điểm đến</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Điểm đến (ví dụ: Phú Quốc)"
-            value={destination}
-            onChange={(e) => setDestination(e.target.value)}
-          />
-        </div>
-        <div className="date-picker-container">
-          <label>Chọn ngày</label>
-          <DatePicker
-            selected={startDate}
-            onChange={handleDateChange}
-            startDate={startDate}
-            endDate={endDate}
-            selectsRange
-            dateFormat="dd/MM/yyyy"
-            className="form-control"
-            minDate={new Date()}
-            placeholderText="Chọn ngày"
-            calendarClassName="custom-calendar"
-          />
-        </div>
-        <div className="guests-room-container">
+      {isHomePage && (
+        <div className="search-section">
           <div className="input-container">
-            <label>Số khách</label>
+            <label>Điểm đến</label>
             <input
-              type="number"
+              type="text"
               className="form-control"
-              value={guests}
-              onChange={(e) => setGuests(e.target.value)}
-              min="1"
+              placeholder="Điểm đến (ví dụ: Phú Quốc)"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
             />
           </div>
-          <div className="input-container">
-            <label>Số phòng</label>
-            <input
-              type="number"
+          <div className="date-picker-container">
+            <label>Chọn ngày</label>
+            <DatePicker
+              selected={startDate}
+              onChange={handleDateChange}
+              startDate={startDate}
+              endDate={endDate}
+              selectsRange
+              dateFormat="dd/MM/yyyy"
               className="form-control"
-              value={rooms}
-              onChange={(e) => setRooms(e.target.value)}
-              min="1"
+              minDate={new Date()}
+              placeholderText="Chọn ngày"
+              calendarClassName="custom-calendar"
             />
           </div>
+          <div className="guests-room-container">
+            <div className="input-container">
+              <label>Số khách</label>
+              <input
+                type="number"
+                className="form-control"
+                value={guests}
+                onChange={(e) => setGuests(e.target.value)}
+                min="1"
+              />
+            </div>
+            <div className="input-container">
+              <label>Số phòng</label>
+              <input
+                type="number"
+                className="form-control"
+                value={rooms}
+                onChange={(e) => setRooms(e.target.value)}
+                min="1"
+              />
+            </div>
+          </div>
+          <button className="btn-search" onClick={handleSearch}>
+            <FaSearch /> Tìm kiếm
+          </button>
         </div>
-        <button className="btn-search" onClick={handleSearch}>
-          <FaSearch /> Tìm kiếm
-        </button>
-      </div>
+      )}
     </header>
   );
 };
