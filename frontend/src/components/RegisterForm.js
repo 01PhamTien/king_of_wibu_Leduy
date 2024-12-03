@@ -83,8 +83,12 @@ const RegisterForm = () => {
       {/* Header */}
       <header className="custom-header">
   <div className="custom-logo-container" onClick={() => navigate("/")}>
-    <i className="bi bi-house-door-fill custom-home-icon"></i>
-    <span className="custom-brand-name">BOOKING.COM</span>
+            <img
+          src="/images/LogoWibu.png"
+          alt="Logo"
+          className="logo-image"
+          />
+    <span className="custom-brand-name">KING OF WIBU</span>
   </div>
   
 </header>
