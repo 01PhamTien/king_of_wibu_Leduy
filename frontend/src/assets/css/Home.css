@@ -10,6 +10,8 @@ body {
   padding: 20px;
 }
 
+
+
 /* Banner */
 .banner img {
   width: 100%;
@@ -17,109 +19,58 @@ body {
   display: block;
 }
 
-
+/* Search Container */
 .search-container {  
-  background-color: #f8f9fa; /* Màu nền sáng */  
-  border-radius: 8px; /* Bo góc các cạnh */  
-  padding: 20px; /* Khoảng cách bên trong */  
-  margin-bottom: 20px; /* Khoảng cách với phần dưới */  
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */  
+  background-color: #f8f9fa;  
+  border-radius: 8px;  
+  padding: 20px;  
+  margin-bottom: 20px;  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
 }  
 
 .search-container h2 {  
-  font-size: 24px; /* Kích thước phông chữ tiêu đề */  
-  margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */  
-  color: #333; /* Màu chữ tối cho tiêu đề */  
-  text-align: left; /* Căn lề trái cho tiêu đề */  
+  font-size: 24px;  
+  margin-bottom: 15px;  
+  color: #333;  
+  text-align: left;  
 }  
 
 .result-container {  
-  display: flex; /* Sử dụng flexbox để sắp xếp */  
-  flex-wrap: wrap; /* Để tự động xuống dòng */  
+  display: flex;  
+  flex-wrap: wrap;  
 }  
-
-
 
 .result-card:hover {  
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm khi hover */  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
 }  
 
-
-
 .result-card {  
-  display: flex; /* Sử dụng flexbox để sắp xếp ảnh và nội dung */  
-  align-items: center; /* Căn giữa theo chiều dọc */  
-  background-color: #fff; /* Màu nền trắng cho thẻ */  
-  border: 1px solid #eee; /* Đường viền nhẹ */  
-  border-radius: 5px; /* Bo góc */  
-  margin: 10px; /* Khoảng cách giữa các thẻ */  
-  width: calc(30% - 20px); /* Điều chỉnh chiều rộng, 3 thẻ trên một hàng */  
-  text-align: left; /* Căn lề trái cho nội dung */  
-  transition: box-shadow 0.3s; /* Hiệu ứng chuyển đổi cho đổ bóng */  
+  display: flex;  
+  align-items: center;  
+  background-color: #fff;  
+  border: 1px solid #eee;  
+  border-radius: 5px;  
+  margin: 10px;  
+  width: calc(30% - 20px);  
+  text-align: left;  
+  transition: box-shadow 0.3s;  
 }  
 
 .result-img {  
-  width: 150px; /* Chiều rộng cố định cho ảnh */  
-  height: 150px; /* Chiều cao cố định cho ảnh */  
-  object-fit: cover; /* Cắt hình ảnh cho phù hợp với khung */  
-  border-top-left-radius: 5px; /* Bo góc trên bên trái */  
-  border-top-right-radius: 5px; /* Bo góc trên bên phải */  
-  margin-right: 10px; /* Giảm khoảng cách bên phải với nội dung */ 
+  width: 150px;  
+  height: 150px;  
+  object-fit: cover;  
+  border-top-left-radius: 5px;  
+  border-top-right-radius: 5px;  
+  margin-right: 10px;  
   margin-left: 10px; 
 }  
 
 .result-details {  
-  padding: 10px; /* Khoảng cách bên trong */  
-  flex: 1; /* Khiến phần nội dung chiếm hết không gian còn lại */  
+  padding: 10px;  
+  flex: 1;  
 }
 
-/* Khuyến mãi */
-.promotion {
-  margin: 20px;
-  text-align: left; /* Canh trái nội dung */
-
-}
-
-.promotion h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  margin-top: 20px;
-}
-
-.promotion-item {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-  max-width: 300px; /* Thu nhỏ chiều rộng */
-  background-color: #f9f9f9;
-}
-
-.promotion-item span {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.promotion-item p {
-  margin: 5px 0;
-  font-size: 0.9rem;
-}
-
-.promotion-item button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.promotion-item button:hover {
-  background-color: #0056b3;
-}
-
-/* Danh mục nổi bật */
 .categories {
   margin: 20px 0;
 }
@@ -161,64 +112,62 @@ body {
 
 /* Phòng khách sạn */
 .hotel-list {
-  margin: 20px 0; /* Khoảng cách giữa danh sách và các phần tử khác */
+  margin: 20px 0;
 }
 
 .hotel-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px; /* Tăng khoảng cách giữa các phần tử */
+  gap: 30px;
 }
 
 .hotel-item {
   background-color: white;
   border-radius: 10px;
-  padding: 20px; /* Tăng khoảng cách nội dung bên trong */
+  padding: 20px;
   text-align: left;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng nổi */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hotel-item img {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  margin-bottom: 15px; /* Khoảng cách giữa ảnh và nội dung */
+  margin-bottom: 15px;
 }
 
 .hotel-item h3 {
-  margin: 10px 0; /* Khoảng cách giữa tên và các phần khác */
+  margin: 10px 0;
   font-size: 20px;
   font-weight: bold;
 }
 
-
 .hotel-item p {
   font-size: 14px;
-  margin: 5px 0; /* Tạo khoảng cách giữa các đoạn văn */
+  margin: 5px 0;
 }
 
 .hotel-item .price {
   font-weight: bold;
   font-size: 20px;
-  font-family: 'Playfair Display', serif; /* Font chữ sang trọng */
+  font-family: 'Playfair Display', serif;
   color: #0a58ca;
   margin: 10px 0;
 }
-
 
 .rating {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 10px 0; /* Khoảng cách giữa đánh giá và giá */
+  margin: 10px 0;
 }
 
 .rating-info {
-  margin-left: 10px; /* Khoảng cách giữa sao và thông tin đánh giá */
+  margin-left: 10px;
 }
 
 .hotel-item button {
-  margin-top: 15px; /* Khoảng cách giữa nút và các phần trên */
+  margin-top: 15px;
   background-color: #0a58ca;
   color: white;
   border: none;
@@ -226,7 +175,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   display: block;
-  margin-left: auto; /* Đẩy nút về phía phải */
+  margin-left: auto;
 }
 
 .hotel-item button:hover {
@@ -236,126 +185,103 @@ body {
 
 
 
-
-/* Cấu trúc chung cho phần đối tác */
-.partners {
+/* Modal Styles */
+.modal {
   display: flex;
-  flex-direction: column; /* Các phần tử sẽ nằm theo chiều dọc */
-  gap: 30px; /* Khoảng cách giữa các phần */
-  font-family: Arial, sans-serif; /* Cải thiện font chữ */
-}
-
-/* Đối tác khách sạn */
-.hotel-partners {
-  display: flex;
-  gap: 30px;
-  border-top: 1px solid black;
-  padding-top: 25px;
-  margin-top: 50px;
-}
-
-.hotel-partners .partners-text {
-  flex: 2;
-  padding: 15px;
-  text-align: left;
-}
-
-.hotel-partners h3 {
-  font-weight: bold;
-  font-size: 32px; /* Kích thước chữ lớn hơn */
-  color: #333; /* Màu chữ tối */
-}
-
-.hotel-partners p {
-  margin: 10px 0;
-  font-size: 18px; /* Kích thước chữ lớn hơn */
-  line-height: 1.5; /* Tăng khoảng cách dòng để văn bản dễ đọc hơn */
-  color: #555; /* Màu chữ dễ nhìn */
-}
-
-.hotel-partners .partners-logos {
-  flex: 3;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
-  padding: 10px;
-}
-
-.hotel-partners .partners-logos img {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  object-fit: cover;
-  max-width: 100px; /* Thay đổi kích thước logo */
-  height: auto;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Đối tác thanh toán */
-.payment-partners {
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  gap: 30px;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.payment-partners .payment-text {
-  flex: 2;
-  padding: 15px;
-  text-align: left;
+.product-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.payment-partners h3 {
+.product-info img {
+  max-width: 200px;
+  max-height: 150px;
+  margin-right: 20px;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity button {
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+
+.total-price {
+  color: red;
   font-weight: bold;
-  font-size: 32px; /* Kích thước chữ lớn hơn */
-  color: #333; /* Màu chữ tối */
-}
-
-.payment-partners p {
-  margin: 10px 0;
-  font-size: 18px; /* Kích thước chữ lớn hơn */
-  line-height: 1.5; /* Tăng khoảng cách dòng để văn bản dễ đọc hơn */
-  color: #555; /* Màu chữ dễ nhìn */
-}
-
-.payment-partners .payment-logos {
-  flex: 3;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
-  padding: 10px;
-  
-}
-
-.payment-partners .payment-logos img {
-  width: 100%;
-  object-fit: cover;
-  max-width: 100px;
-  height: auto;
-  
-}
-
-
-
-
-
-
-/* Điểm đến hot nhất */
-.hot-destinations {  
-  margin: 40px 0;  /* Khoảng cách trên và dưới rộng thêm */
-  text-align: center; 
-  margin-top: 20px; 
-}  
-
-.destination-grid {  
-  display: grid; /* Sử dụng grid */  
-  grid-template-columns: repeat(4, 1fr); /* Tạo 4 cột */  
-  gap: 20px; /* Khoảng cách giữa các item */  
+  font-size: 1.2rem;
   margin-top: 20px;
-}  
-
-.destination-item {  
-  margin: 0; /* Gỡ bỏ margin để tránh ảnh hưởng đến cấu trúc */  
-}  
-
-.destination-item img {  
-  width: 100%; /* Ảnh chiếm toàn bộ chiều rộng của item */  
-  border-radius: 8px; /* Làm tròn góc ảnh */  
+  text-align: center;
 }
+
+/* Customer Information Inputs */
+.customer-info input,
+.customer-info select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Button Styles */
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+

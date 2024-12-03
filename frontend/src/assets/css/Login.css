@@ -180,7 +180,6 @@ form .form-group + .form-group {
 .custom-logo-container {
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 /* Custom logo */
@@ -232,4 +231,31 @@ form .form-group + .form-group {
 /* Thay đổi màu sắc khi hover vào biểu tượng nhà */
 .custom-home-icon:hover {
   color: #0056b3;
+}
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff; /* Màu nền header */
+  border-bottom: 1px solid #ddd; /* Đường kẻ phân cách */
+  width: 100%; /* Chiều rộng full màn hình */
+  box-sizing: border-box; /* Bao gồm cả padding trong kích thước */
+}
+
+.custom-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-home-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.custom-brand-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
 }
