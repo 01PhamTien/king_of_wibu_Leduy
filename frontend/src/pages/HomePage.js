@@ -71,8 +71,8 @@ const HomePage = () => {
       setError('Vui lòng nhập họ tên.');
       return;
     }
-    if (!orderInfo.address) {
-      setError('Vui lòng nhập địa chỉ.');
+    if (!orderInfo.address) { // Kiểm tra email thay vì địa chỉ
+      setError('Vui lòng nhập email.');
       return;
     }
     if (!orderInfo.phone) {
@@ -164,9 +164,9 @@ quantity: 1,
                 }
               />
               <input
-                type="text"
-                placeholder="Địa chỉ"
-                value={orderInfo.address}
+                type="email" // Thay đổi type thành 'email'
+                placeholder="Email"
+                value={orderInfo.address} // Đổi từ address thành email
                 onChange={(e) =>
                   setOrderInfo({ ...orderInfo, address: e.target.value })
                 }

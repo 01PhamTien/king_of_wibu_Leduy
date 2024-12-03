@@ -73,80 +73,76 @@ const rooms = [
   },
   { 
     id: 9, 
-    name: 'New Star Inn Boutique Hotel', 
+    name: 'Acheron Mei', 
     address: 'TP. Hồ Chí Minh, Việt Nam', 
-    price: '1,000,000 VND', 
+    price: '1,100,000 VND', 
     rating: 4.5, 
-    reviews: 100, 
-    image: '/images/001.jpg' 
+    reviews: 210, 
+    image: '/images/0009.jpg' 
   },
   { 
     id: 10, 
-    name: 'Skylark Boutique Hotel', 
+    name: 'Đá Bào Quang', 
     address: 'Hà Nội, Việt Nam', 
-    price: '1,200,000 VND', 
+    price: '1,500,000 VND', 
     rating: 3, 
-    reviews: 45, 
-    image: '/images/002.jpg' 
+    reviews: 145, 
+    image: '/images/00010.jpg' 
   },
   { 
     id: 11, 
-    name: 'Flamingo Hotel', 
+    name: 'Nico Robin Luffy', 
     address: 'Đà Nẵng, VIệt Nam', 
-    price: '900,000 VND', 
+    price: '1900,000 VND', 
     rating: 4, 
-    reviews: 200, 
-    image: '/images/003.jpg' 
+    reviews: 400, 
+    image: '/images/00011.jpg' 
   },
   { 
     id: 12, 
-    name: 'Sài Gòn Hotel', 
+    name: 'Sài Gòn Bay', 
     address: 'Sài Gòn, Việt Nam', 
-    price: '1,500,000 VND', 
+    price: '1,600,000 VND', 
     rating: 5, 
-    reviews: 350, 
-    image: '/images/004.jpg' 
+    reviews: 250, 
+    image: '/images/00012.jpg' 
   },
   { 
     id: 13, 
-    name: 'Galaxy Boutique Sai Gon', 
+    name: 'Galaxy Boutique Đà Nẵng', 
     address: 'TP. Hồ Chí Minh, Việt Nam', 
     price: '1,800,000 VND', 
     rating: 4.5, 
-    reviews: 30, 
-    image: '/images/005.jpg' 
+    reviews: 130, 
+    image: '/images/00013.jpg' 
   },
   { 
     id: 14, 
-    name: 'Ipeace Hotel', 
+    name: 'Galaxi Impact', 
     address: 'TP. Hồ Chí Minh, Việt Nam', 
     price: '1,950,000 VND', 
     rating: 3.5, 
-    reviews: 150, 
-    image: '/images/006.jpg' 
+    reviews: 110, 
+    image: '/images/00014.jpg' 
   },
   { 
     id: 15, 
-    name: 'The Reverie Saigon', 
+    name: 'Vietnamese meeting day', 
     address: 'TP. Hồ Chí Minh, Việt Nam', 
     price: '3,300,000 VND', 
     rating: 4.8, 
-    reviews: 220, 
-    image: '/images/007.jpg' 
+    reviews: 320, 
+    image: '/images/00015.jpg' 
   },
   { 
-    id: 16, 
-<<<<<<< HEAD
-    name: 'Love Hotel', 
-    address: 'Hue, Việt Nam', 
-=======
-    name: 'Love Hotel',
-address: 'Hue, Việt Nam', 
->>>>>>> 8caf0898ee932ee97ca569da7d6c37b17b1b4a74
+     
+    id: 16,  
+    name: 'Love Mei-senpai',  // hoặc 'Hotel Love' tùy theo sự lựa chọn của bạn  
+    address: 'Hue, Việt Nam', // hoặc 'Hà Nội, Việt Nam' tùy theo sự lựa chọn của bạn  
     price: '2,000,000 VND', 
     rating: 4.2, 
-    reviews: 180, 
-    image: '/images/008.jpg' 
+    reviews: 280, 
+    image: '/images/00016.jpg' 
   },
   
 ];
