@@ -222,11 +222,12 @@ form .form-group + .form-group {
 /* Header */
 .custom-header {
   background-color: #BDD8FF; /* Màu nền header */
-  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #003366; /* Màu chữ */
+  width: 1440px;
+  height: 80px;
 }
 
 /* Logo Container */
@@ -234,6 +235,7 @@ form .form-group + .form-group {
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-left: 50px;
 }
 
 .custom-home-icon {
