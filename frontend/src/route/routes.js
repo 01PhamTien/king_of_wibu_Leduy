@@ -37,6 +37,7 @@ function AppRoutes() {
 
       {/* Thêm route cho Admin Dashboard */}
       <Route path="/AdminDashboard" element={<AdminDashboard />} /> {/* Admin Dashboard route */}
+
     </Routes>
   );
 }

@@ -1,39 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, useLocation, useNavigate } from "react-router-dom";
-import AppRoutes from "./route/routes"; // Đảm bảo đường dẫn chính xác
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import AppRoutes from "./route/routes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { SearchProvider } from "./context/SearchContext"; // Đảm bảo SearchProvider được import đúng
+import { SearchProvider } from "./context/SearchContext";
 
 const App = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const [isAdmin, setIsAdmin] = useState(false); // Kiểm tra vai trò admin
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  const noHeaderFooterPaths = ["/login", "/register"]; // Các đường dẫn không có Header và Footer
-  const shouldHideHeaderFooter = noHeaderFooterPaths.includes(location.pathname);
+  const noHeaderFooterPaths = ["/login", "/register"];
+  const shouldHideHeaderFooter =
+    noHeaderFooterPaths.includes(location.pathname) || isAdmin; // Ẩn nếu là admin hoặc ở trang login/register
 
   useEffect(() => {
     // Lấy thông tin người dùng từ localStorage
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-    if (loggedInUser && loggedInUser.role === "admin") {
-      setIsAdmin(true); // Xác định người dùng là admin
-      navigate("/AdminDashboard"); // Điều hướng đến trang admin
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    try {
+      const parsedUser = loggedInUser ? JSON.parse(loggedInUser) : null;
+      if (parsedUser && parsedUser.role === "admin") {
+        setIsAdmin(true); // Xác định là admin
+      } else {
+        setIsAdmin(false);
+      }
+    } catch (error) {
+      console.error("Error parsing loggedInUser:", error);
+      setIsAdmin(false); // Đảm bảo không phải admin nếu lỗi xảy ra
     }
-  }, [navigate]);
+  }, [location.pathname]); // Thêm `location.pathname` để kiểm tra khi chuyển trang
 
   return (
     <div className="App">
-      {/* Ẩn Header và Footer nếu đường dẫn nằm trong noHeaderFooterPaths hoặc người dùng là admin */}
-      {!shouldHideHeaderFooter && !isAdmin && <Header />}
+      {!shouldHideHeaderFooter && <Header />}
       <AppRoutes />
-      {!shouldHideHeaderFooter && !isAdmin && <Footer />}
+      {!shouldHideHeaderFooter && <Footer />}
     </div>
   );
 };
 
-// Bao bọc App bằng SearchProvider và Router
 const AppWrapper = () => (
   <SearchProvider>
     <Router>
