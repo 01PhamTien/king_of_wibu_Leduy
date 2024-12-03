@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { SearchProvider } from "./context/SearchContext";
 
+
 const App = () => {
   const location = useLocation();
   const [isAdmin, setIsAdmin] = useState(false);
@@ -45,5 +46,7 @@ const AppWrapper = () => (
     </Router>
   </SearchProvider>
 );
+
+
 
 export default AppWrapper;

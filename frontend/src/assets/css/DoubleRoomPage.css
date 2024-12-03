@@ -227,4 +227,30 @@ body {
 .success-notification button:hover {
     background-color: #45a049;
 }
- 
+ /* Success message styling */
+.booking-success {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745; /* Green color for success */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    z-index: 9999;
+  }
+  
+  .booking-success.hidden {
+    opacity: 0;
+    pointer-events: none; /* Disables interactions when hidden */
+  }
+  
+  .booking-success p {
+    margin: 0;
+  }
+  

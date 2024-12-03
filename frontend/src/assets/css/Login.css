@@ -80,6 +80,7 @@ form {
 form .form-group + .form-group {
   margin-top: 10px;
 }
+
 /* Container cho liên kết đăng ký */
 .register-link-container {
   margin-top: 20px;
@@ -95,6 +96,7 @@ form .form-group + .form-group {
 .register-link:hover {
   text-decoration: underline;
 }
+
 /* Container cho nút social login */
 .social-login-container {
   margin-top: 20px;
@@ -147,6 +149,7 @@ form .form-group + .form-group {
   height: 16px;
   width: 16px;
 }
+
 .checkbox-group {
   display: flex;
   align-items: center;

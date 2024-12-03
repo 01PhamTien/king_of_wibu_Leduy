@@ -79,114 +79,115 @@ const RegisterForm = () => {
   });
 
   return (
-    <div className="register-form-container">
-      <h2>Tạo tài khoản mới</h2>
-      {successMessage && <p className="success-message">{successMessage}</p>}
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <form onSubmit={formik.handleSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Tên đầy đủ của bạn"
-            value={formik.values.fullName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.fullName && formik.errors.fullName && (
-            <p className="error-message">{formik.errors.fullName}</p>
-          )}
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            name="emailOrPhone"
-            placeholder="Email hoặc Số điện thoại"
-            value={formik.values.emailOrPhone}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.emailOrPhone && formik.errors.emailOrPhone && (
-            <p className="error-message">{formik.errors.emailOrPhone}</p>
-          )}
-        </div>
-        <div className="form-group password-container">
-          <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="Mật khẩu"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          <span
-            className="icon"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>
-          {formik.touched.password && formik.errors.password && (
-            <p className="error-message">{formik.errors.password}</p>
-          )}
-        </div>
-        <div className="form-group password-container">
-          <input
-            type={showConfirmPassword ? "text" : "password"}
-            name="confirmPassword"
-            placeholder="Xác nhận mật khẩu"
-            value={formik.values.confirmPassword}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          <span
-            className="icon"
-            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-          >
-            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>
-          {formik.touched.confirmPassword &&
-            formik.errors.confirmPassword && (
-              <p className="error-message">{formik.errors.confirmPassword}</p>
+    <div>
+      {/* Nội dung form */}
+      <div className="register-form-container">
+        <h2>Tạo tài khoản mới</h2>
+        {successMessage && <p className="success-message">{successMessage}</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <form onSubmit={formik.handleSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Tên đầy đủ của bạn"
+              value={formik.values.fullName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.fullName && formik.errors.fullName && (
+              <p className="error-message">{formik.errors.fullName}</p>
             )}
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="emailOrPhone"
+              placeholder="Email hoặc Số điện thoại"
+              value={formik.values.emailOrPhone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.emailOrPhone && formik.errors.emailOrPhone && (
+              <p className="error-message">{formik.errors.emailOrPhone}</p>
+            )}
+          </div>
+          <div className="form-group password-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Mật khẩu"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <span
+              className="icon"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+            {formik.touched.password && formik.errors.password && (
+              <p className="error-message">{formik.errors.password}</p>
+            )}
+          </div>
+          <div className="form-group password-container">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              placeholder="Xác nhận mật khẩu"
+              value={formik.values.confirmPassword}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <span
+              className="icon"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+            {formik.touched.confirmPassword &&
+              formik.errors.confirmPassword && (
+                <p className="error-message">{formik.errors.confirmPassword}</p>
+              )}
+          </div>
+          <div className="form-group">
+            <input
+              type="date"
+              name="dateOfBirth"
+              value={formik.values.dateOfBirth}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
+              <p className="error-message">{formik.errors.dateOfBirth}</p>
+            )}
+          </div>
+          <div className="form-group">
+            <select
+              name="gender"
+              value={formik.values.gender}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option value="">Chọn giới tính</option>
+              <option value="Nam">Nam</option>
+              <option value="Nữ">Nữ</option>
+              <option value="Khác">Khác</option>
+            </select>
+            {formik.touched.gender && formik.errors.gender && (
+              <p className="error-message">{formik.errors.gender}</p>
+            )}
+          </div>
+          <button type="submit" className="register-button">
+            Đăng ký
+          </button>
+        </form>
+        <div className="login-link-container">
+          <span className="text-static">Bạn đã có tài khoản?</span>
+          <a href="/login" className="link">Đăng nhập</a>
         </div>
-        <div className="form-group">
-          <input
-            type="date"
-            name="dateOfBirth"
-            value={formik.values.dateOfBirth}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
-            <p className="error-message">{formik.errors.dateOfBirth}</p>
-          )}
-        </div>
-        <div className="form-group">
-          <select
-            name="gender"
-            value={formik.values.gender}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          >
-            <option value="">Chọn giới tính</option>
-            <option value="Nam">Nam</option>
-            <option value="Nữ">Nữ</option>
-            <option value="Khác">Khác</option>
-          </select>
-          {formik.touched.gender && formik.errors.gender && (
-            <p className="error-message">{formik.errors.gender}</p>
-          )}
-        </div>
-        <button type="submit" className="register-button">
-          Đăng ký
-        </button>
-      </form>
-      <div className="login-link-container">
-        <span className="text-static">Bạn đã có tài khoản?</span>
-        <a href="/login" className="link">Đăng nhập</a>
       </div>
-
-
     </div>
   );
 };
