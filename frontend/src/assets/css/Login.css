@@ -233,3 +233,34 @@ form .form-group + .form-group {
 .custom-home-icon:hover {
   color: #0056b3;
 }
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff; /* Màu nền header */
+  border-bottom: 1px solid #ddd; /* Đường kẻ phân cách */
+  z-index: 10; /* Cho hiển thị trên form nếu cần */
+}
+
+.custom-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-home-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.custom-brand-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Bảo đảm header không cố định */
+.custom-header {
+  position: relative; /* Không cố định, nên bị ẩn khi cuộn */
+}
