@@ -136,7 +136,7 @@ quantity: 1,
       {showModal && selectedRoom && (
         <div className="modal show">
           <div className="modal-content">
-            <h2>Thông tin đặt hàng</h2>
+            <h2>Thông tin đặt phòng</h2>
             <div className="product-info">
               <img src={selectedRoom.image} alt={selectedRoom.name} />
               <div className="product-details">
