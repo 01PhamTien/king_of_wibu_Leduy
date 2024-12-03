@@ -101,3 +101,10 @@ h2 {
 .share-btn:hover {
   background-color: #0056b3;
 }
+.search-section {
+  position: relative; /* Đặt vị trí tương đối để dễ chỉnh top */
+  top: -100px; /* Đẩy thanh tìm kiếm lên trên */
+  margin-bottom: 20px; /* Tùy chỉnh khoảng cách dưới */
+  z-index: 10; /* Đảm bảo thanh tìm kiếm nằm trên các phần tử khác nếu cần */
+  text-align: center; /* Căn giữa nếu cần */
+}
