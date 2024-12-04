@@ -1,20 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Dùng useNavigate để điều hướng
 import '../assets/css/Home.css';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import Banner from '../components/Banner';
 import rooms from '../data/data';
 
 const HomePage = () => {
-  const [selectedRoom, setSelectedRoom] = useState(null); // Lưu thông tin phòng được chọn
+  const [selectedRoom, setSelectedRoom] = useState(null);
   const [orderInfo, setOrderInfo] = useState({
     name: '',
     address: '',
     phone: '',
-    paymentMethod: '', // Ban đầu để trống để yêu cầu người dùng chọn
+    paymentMethod: '',
     quantity: 1,
-  }); // Lưu thông tin người đặt
-  const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
-  const [error, setError] = useState(''); // Lưu thông báo lỗi
+  });
+  const [showModal, setShowModal] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Để kiểm tra trạng thái đăng nhập
+  const navigate = useNavigate(); // Sử dụng useNavigate để điều hướng
+
+  // Kiểm tra đăng nhập khi trang được tải
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    setIsLoggedIn(loggedInUser ? true : false);
+  }, []);
+
+  // Hàm xử lý khi nhấn Đặt ngay
+  const handleOrder = (room) => {
+    if (!isLoggedIn) {
+      // Nếu chưa đăng nhập, chuyển hướng đến trang login
+      navigate('/login');
+    } else {
+      // Nếu đã đăng nhập, hiển thị modal đặt phòng
+      setSelectedRoom(room);
+      setShowModal(true);
+    }
+  };
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -34,44 +55,29 @@ const HomePage = () => {
     );
   };
 
-  // Xử lý khi nhấn "Đặt ngay"
-  const handleOrder = (room) => {
-    setSelectedRoom(room);
-    setShowModal(true); // Hiển thị modal khi nhấn "Đặt ngay"
-  };
-
-  // Xử lý sự kiện thay đổi số lượng
   const handleQuantityChange = (delta) => {
     setOrderInfo((prev) => {
-      const newQuantity = Math.max(1, prev.quantity + delta); // Số lượng tối thiểu là 1
+      const newQuantity = Math.max(1, prev.quantity + delta);
       return {
         ...prev,
         quantity: newQuantity,
       };
     });
   };
-  const handleDoubleClick = (roomId) => {
-    // Chuyển hướng đến trang chi tiết phòng khi click đôi
-    window.location.href = `/room/${roomId}`;
-  };
 
-  // Hàm tính tổng giá
   const calculateTotalPrice = () => {
     if (!selectedRoom) return 0;
 
-    // Chuyển giá thành số nếu chưa phải kiểu số và tính tổng giá
-    const price = parseFloat(selectedRoom.price.replace(/[^\d.-]/g, '')); // Xóa dấu phân cách nếu có
+    const price = parseFloat(selectedRoom.price.replace(/[^\d.-]/g, ''));
     return price * orderInfo.quantity;
   };
 
-  // Xử lý gửi thông tin đơn hàng
   const handleOrderSubmit = () => {
-    // Kiểm tra xem các trường thông tin đã được điền đầy đủ chưa
     if (!orderInfo.name) {
       setError('Vui lòng nhập họ tên.');
       return;
     }
-    if (!orderInfo.address) { // Kiểm tra email thay vì địa chỉ
+    if (!orderInfo.address) {
       setError('Vui lòng nhập email.');
       return;
     }
@@ -84,18 +90,16 @@ const HomePage = () => {
       return;
     }
 
-    // Nếu tất cả các thông tin hợp lệ, thông báo đặt hàng thành công
     alert("Đơn hàng đã được đặt thành công!");
 
-    // Đóng modal và reset lại thông tin đặt hàng
     setShowModal(false);
-    setError(''); // Reset thông báo lỗi
+    setError('');
     setOrderInfo({
       name: '',
       address: '',
       phone: '',
-      paymentMethod: '', // Để trống lại sau khi đặt hàng
-quantity: 1,
+      paymentMethod: '',
+      quantity: 1,
     });
   };
 
@@ -106,13 +110,9 @@ quantity: 1,
         <div className="hotel-list">
           <h3>Bạn có còn quan tâm đến những chỗ nghỉ này?</h3>
           <div className="hotel-grid">
-          {rooms.slice(0, 16).map((room) => (
-            <div className="hotel-item" key={room.id} onDoubleClick={() => handleDoubleClick(room.id)}>
-
-                <img
-                  src={room.image}
-                  alt={`Room ${room.id}`}
-                />
+            {rooms.slice(0, 16).map((room) => (
+              <div className="hotel-item" key={room.id}>
+                <img src={room.image} alt={`Room ${room.id}`} />
                 <h3>{room.name}</h3>
                 <p>{room.address}</p>
                 <p className="price">
@@ -132,7 +132,6 @@ quantity: 1,
         </div>
       </div>
 
-      {/* Modal Đặt hàng */}
       {showModal && selectedRoom && (
         <div className="modal show">
           <div className="modal-content">
@@ -164,9 +163,9 @@ quantity: 1,
                 }
               />
               <input
-                type="email" // Thay đổi type thành 'email'
+                type="email"
                 placeholder="Email"
-                value={orderInfo.address} // Đổi từ address thành email
+                value={orderInfo.address}
                 onChange={(e) =>
                   setOrderInfo({ ...orderInfo, address: e.target.value })
                 }
@@ -178,7 +177,7 @@ quantity: 1,
                 onChange={(e) =>
                   setOrderInfo({ ...orderInfo, phone: e.target.value })
                 }
-/>
+              />
               <select
                 value={orderInfo.paymentMethod}
                 onChange={(e) =>
@@ -191,10 +190,7 @@ quantity: 1,
                 <option value="CreditCard">Thẻ tín dụng</option>
               </select>
             </div>
-
-            {/* Hiển thị thông báo lỗi nếu có */}
             {error && <div className="error-message">{error}</div>}
-
             <div className="modal-actions">
               <button onClick={() => setShowModal(false)}>Hủy</button>
               <button onClick={handleOrderSubmit}>Xác nhận</button>

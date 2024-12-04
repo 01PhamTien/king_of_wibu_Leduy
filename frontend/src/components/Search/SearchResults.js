@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../../assets/css/SearchResults.css";
 import { FaStar } from "react-icons/fa";
 
@@ -11,6 +12,8 @@ const SearchResults = () => {
   const [maxPriceFilter, setMaxPriceFilter] = useState('');
   const [ratingFilter, setRatingFilter] = useState('');
   const [reviewFilter, setReviewFilter] = useState('');
+
+  const navigate = useNavigate(); // Khởi tạo useNavigate
 
   // Hàm kiểm tra giá trị nhập
   const handlePriceChange = (e, setValue) => {
@@ -33,6 +36,12 @@ const SearchResults = () => {
     return priceMatch && ratingMatch && reviewMatch;
   });
 
+  // Hàm xử lý khi nhấn nút "Thông tin"
+  const handleInfoClick = (roomId) => {
+    // Điều hướng đến trang chi tiết của phòng
+    navigate(`/room/${roomId}`);
+  };
+
   return (
     <div className="search-results">
       {/* Bộ lọc */}
@@ -49,6 +58,7 @@ const SearchResults = () => {
         <div className="filter">
           <label>Giá tối đa:</label>
           <input 
+          
             type="number" 
             placeholder="Giá tối đa" 
             value={maxPriceFilter} 
@@ -98,7 +108,10 @@ const SearchResults = () => {
                 <div className="rating">
                   <FaStar /> {room.rating} ({room.reviews} reviews)
                 </div>
-                <button className="info-btn">
+                <button 
+                  className="info-btn"
+                  onClick={() => handleInfoClick(room.id)} // Gọi hàm xử lý khi nhấn "Thông tin"
+                >
                   Thông tin
                 </button>
               </div>

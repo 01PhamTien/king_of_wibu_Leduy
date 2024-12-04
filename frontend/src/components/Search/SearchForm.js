@@ -36,10 +36,7 @@ const SearchForm = () => {
 
     if (searchResults.length === 0) {
       alert('Không tìm thấy kết quả phù hợp.');
-    } else {
-      alert(`Tìm thấy ${searchResults.length} kết quả.`);
-    }
-
+    } 
     // Cập nhật kết quả tìm kiếm vào context
     updateSearchResults(searchResults);
 
