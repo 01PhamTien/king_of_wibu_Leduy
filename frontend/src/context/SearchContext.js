@@ -1,14 +1,16 @@
 import React, { createContext, useState } from "react";
 
-// Tạo context
 export const SearchContext = createContext();
 
-// SearchProvider để cung cấp giá trị cho toàn bộ ứng dụng
 export const SearchProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
 
+  const updateSearchResults = (results) => {
+    setSearchResults(results);
+  };
+
   return (
-    <SearchContext.Provider value={{ searchResults, setSearchResults }}>
+    <SearchContext.Provider value={{ searchResults, updateSearchResults }}>
       {children}
     </SearchContext.Provider>
   );

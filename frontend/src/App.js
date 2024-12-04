@@ -3,8 +3,7 @@ import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import AppRoutes from "./route/routes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { SearchProvider } from "./context/SearchContext";
-
+import { SearchProvider } from "./context/SearchContext"; 
 
 const App = () => {
   const location = useLocation();
@@ -40,13 +39,11 @@ const App = () => {
 };
 
 const AppWrapper = () => (
-  <SearchProvider>
+  <SearchProvider> {/* Sử dụng SearchContextProvider ở đây */}
     <Router>
       <App />
     </Router>
   </SearchProvider>
 );
-
-
 
 export default AppWrapper;

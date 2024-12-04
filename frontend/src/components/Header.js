@@ -1,17 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { FaSearch } from 'react-icons/fa';
-import '../assets/css/Header.css';
 import { SearchContext } from '../context/SearchContext';
-
+import SearchForm from '../components/Search/SearchForm';  // Import component SearchForm
+import '../assets/css/Header.css';
 const Header = () => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [guests, setGuests] = useState(1);
-  const [rooms, setRooms] = useState(1);
-  const [destination, setDestination] = useState('');
   const { setSearchResults } = useContext(SearchContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,22 +23,10 @@ const Header = () => {
     }
   }, [navigate]);
 
-  const handleDateChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
+  const handleSearch = (searchParams) => {
+    const { destination, startDate, endDate, guests, rooms } = searchParams;
 
-  const handleSearch = () => {
-    if (!startDate || !guests || !rooms || !destination) {
-      alert('Vui lòng điền đầy đủ thông tin.');
-      return;
-    }
-
-    const formattedStartDate = startDate.toISOString().split('T')[0];
-    const formattedEndDate = endDate ? endDate.toISOString().split('T')[0] : formattedStartDate;
-
-    const url = `http://localhost:5000/api/search?destination=${destination}&startDate=${formattedStartDate}&endDate=${formattedEndDate}&guests=${guests}&rooms=${rooms}`;
+    const url = `http://localhost:5000/api/search?destination=${destination}&startDate=${startDate}&endDate=${endDate}&guests=${guests}&rooms=${rooms}`;
 
     fetch(url)
       .then((response) => response.json())
@@ -127,58 +107,7 @@ const Header = () => {
       )}
 
       {isHomePage && (
-        <div className="search-section">
-          <div className="input-container">
-            <label>Điểm đến</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Điểm đến (ví dụ: Phú Quốc)"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-            />
-          </div>
-          <div className="date-picker-container">
-            <label>Chọn ngày</label>
-            <DatePicker
-              selected={startDate}
-              onChange={handleDateChange}
-              startDate={startDate}
-              endDate={endDate}
-              selectsRange
-              dateFormat="dd/MM/yyyy"
-              className="form-control"
-              minDate={new Date()}
-              placeholderText="Chọn ngày"
-              calendarClassName="custom-calendar"
-            />
-          </div>
-          <div className="guests-room-container">
-            <div className="input-container">
-              <label>Số khách</label>
-              <input
-                type="number"
-                className="form-control"
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                min="1"
-              />
-            </div>
-            <div className="input-container">
-              <label>Số phòng</label>
-              <input
-                type="number"
-                className="form-control"
-                value={rooms}
-                onChange={(e) => setRooms(e.target.value)}
-                min="1"
-              />
-            </div>
-          </div>
-          <button className="btn-search" onClick={handleSearch}>
-            <FaSearch /> Tìm kiếm
-          </button>
-        </div>
+        <SearchForm onSearch={handleSearch} />  
       )}
     </header>
   );

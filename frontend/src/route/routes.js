@@ -15,6 +15,7 @@ import SingleRoomPage from '../pages/roomlist/SingleRoomPage';
 import DoubleRoomPage from '../pages/roomlist/DoubleRoomPage'; 
 import FamilyRoomPage from '../pages/roomlist/FamilyRoomPage'; 
 import AdminDashboard from '../components/AdminDashboard'; // Import Admin Dashboard
+import SearchResult from '../components/Search/SearchResults'; // Import SearchResult page (đảm bảo đã tạo trang này)
 
 function AppRoutes() {
   return (
@@ -41,6 +42,9 @@ function AppRoutes() {
 
       {/* Thêm route cho Admin Dashboard */}
       <Route path="/AdminDashboard" element={<AdminDashboard />} /> {/* Admin Dashboard route */}
+
+      {/* Thêm route cho SearchResult */}
+      <Route path="/search-results" element={<SearchResult />} /> {/* Route cho trang kết quả tìm kiếm */}
     </Routes>
   );
 }

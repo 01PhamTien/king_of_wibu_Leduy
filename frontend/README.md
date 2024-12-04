@@ -79,7 +79,6 @@ frontend/
 ├── src/  
 │   ├── assets/     #Chứa các tệp CSS để định dạng giao diện.
 │   ├── components/ #Các component nhỏ được dùng chung trong nhiều nơi.
-│   ├── context/    #Quản lý dữ liệu chia sẻ giữa các component với Context API.
 │   ├── data/       #Lưu trữ các tệp dữ liệu tạm thời hoặc dữ liệu mẫu.
 │   └── page/       #Các thành phần React đại diện cho từng trang giao diện.
 │   └── route/      #Xử lý các đường dẫn (routes) của ứng dụng.

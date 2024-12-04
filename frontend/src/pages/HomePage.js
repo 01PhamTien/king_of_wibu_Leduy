@@ -106,7 +106,7 @@ quantity: 1,
         <div className="hotel-list">
           <h3>Bạn có còn quan tâm đến những chỗ nghỉ này?</h3>
           <div className="hotel-grid">
-          {rooms.slice(1, 16).map((room) => (
+          {rooms.slice(0, 16).map((room) => (
             <div className="hotel-item" key={room.id} onDoubleClick={() => handleDoubleClick(room.id)}>
 
                 <img

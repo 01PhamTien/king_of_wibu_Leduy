@@ -69,8 +69,7 @@ const rooms = [
     price: '2,000,000 VND', 
     rating: 4.2, 
     reviews: 180, 
-    image: '/images/008.jpg' 
-  },
+    image: '/images/008.jpg'  },
   { 
     id: 9, 
     name: 'Acheron Mei', 
