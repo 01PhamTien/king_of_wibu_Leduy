@@ -15,17 +15,40 @@ const SearchResults = () => {
 
   const navigate = useNavigate(); // Khởi tạo useNavigate
 
-  // Hàm kiểm tra giá trị nhập
+  // Hàm xử lý sự thay đổi giá trị và làm tròn giá trị nhập vào
   const handlePriceChange = (e, setValue) => {
-    if (e.target.value >= 0) setValue(e.target.value);
+    const value = e.target.value;
+
+    // Kiểm tra nếu người dùng nhập giá trị rỗng
+    if (value === '') {
+      setValue('');
+      return;
+    }
+
+    // Chuyển giá trị thành số nguyên và kiểm tra tính hợp lệ
+    const numericValue = parseInt(value, 10);
+    if (!isNaN(numericValue) && numericValue >= 0) {
+      // Cập nhật giá trị mà không làm tròn, chỉ làm tròn khi cần thiết
+      setValue(numericValue.toString()); // Cập nhật giá trị nhập vào trực tiếp
+    } else {
+      // Nếu giá trị nhập vào không hợp lệ, reset về giá trị ban đầu
+      setValue('');
+    }
+  };
+
+  // Hàm chuyển đổi giá thành số để so sánh
+  const parsePrice = (price) => {
+    return parseInt(price.replace(/[^0-9]/g, ''), 10); // Loại bỏ tất cả ký tự không phải số và chuyển thành số nguyên
   };
 
   // Hàm lọc kết quả
   const filteredResults = searchResults.filter((room) => {
+    const roomPrice = parsePrice(room.price); // Chuyển giá phòng thành số
+
     // Lọc theo giá
     const priceMatch = 
-      (minPriceFilter ? room.price >= minPriceFilter : true) && 
-      (maxPriceFilter ? room.price <= maxPriceFilter : true);
+      (minPriceFilter ? roomPrice >= parsePrice(minPriceFilter) : true) && 
+      (maxPriceFilter ? roomPrice <= parsePrice(maxPriceFilter) : true);
     
     // Lọc theo rating
     const ratingMatch = ratingFilter ? room.rating >= ratingFilter : true;
@@ -58,7 +81,6 @@ const SearchResults = () => {
         <div className="filter">
           <label>Giá tối đa:</label>
           <input 
-          
             type="number" 
             placeholder="Giá tối đa" 
             value={maxPriceFilter} 
@@ -104,7 +126,7 @@ const SearchResults = () => {
               <div className="product-info">
                 <h3>{room.name}</h3>
                 <p>{room.address}</p>
-                <p className="price">{room.price}</p>
+                <p className="price">{room.price} ₫</p> {/* Thêm ký hiệu VND */}
                 <div className="rating">
                   <FaStar /> {room.rating} ({room.reviews} reviews)
                 </div>

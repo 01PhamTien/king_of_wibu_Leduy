@@ -57,9 +57,19 @@ const SingleRoomPage = () => {
     setIsBookingConfirmed(true);
     setIsModalVisible(false);
 
-    const bookedRooms = JSON.parse(localStorage.getItem("bookedRooms")) || [];
-    bookedRooms.push(...selectedRooms);
-    localStorage.setItem("bookedRooms", JSON.stringify(bookedRooms));
+    let bookedRooms = JSON.parse(localStorage.getItem("bookedRooms"));
+
+// Kiểm tra nếu bookedRooms không phải là mảng, thì khởi tạo lại là mảng trống
+if (!Array.isArray(bookedRooms)) {
+  bookedRooms = [];
+}
+
+// Thêm các phòng đã chọn vào mảng
+bookedRooms.push(...selectedRooms);
+
+// Lưu lại vào localStorage
+localStorage.setItem("bookedRooms", JSON.stringify(bookedRooms));
+
 
     setTimeout(() => {
       setIsHidden(true);
