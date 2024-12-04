@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/BookingPage.css"; // Để áp dụng CSS
 
+
 const BookingPage = () => {
   const [bookedRooms, setBookedRooms] = useState([]);
   const [successMessage, setSuccessMessage] = useState(""); // For success notification

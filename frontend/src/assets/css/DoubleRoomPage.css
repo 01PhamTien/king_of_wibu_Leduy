@@ -310,4 +310,12 @@
     background: none;
     border: none;
   }
+  .room-image {
+    max-width: 200px; /* Adjust the maximum width to fit the container */
+    height: auto;    /* Maintain aspect ratio */
+    max-height: 200px; /* Set a max height for consistency */
+    object-fit: cover; /* Ensures images fill the space without distortion */
+    border-radius: 8px; /* Adds rounded corners for better aesthetics */
+    margin: 10px 0; /* Adds some spacing around the images */
+  }
   
