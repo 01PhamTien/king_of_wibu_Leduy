@@ -82,6 +82,16 @@ const hotels = [
       type: "Standard",
       available: 10,  // Available rooms
     },
+    {
+      name: "Standard Room 9",
+      location: "Bình Dương, Việt Nam",
+      price: "1,300,000 VND/đêm",
+      rating: 4.3,
+      reviews: 80,
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ41D11azH-cy7UwIbtqvH4FW-7dhz7XV796g&s",
+      type: "Standard",
+      available: 10,  // Available rooms
+    },
     // VIP rooms
     {
       name: "VIP Room 1",
@@ -164,6 +174,16 @@ const hotels = [
       type: "VIP",
       available: 3,  // Available rooms
     },
+    {
+      name: "VIP Room 9",
+      location: "Nha Trang, Việt Nam",
+      price: "2,400,000 VND/đêm",
+      rating: 4.9,
+      reviews: 125,
+      image: "https://bobhotel.com.vn/upload/filemanage/B.O.B%20SIGNATURE%20-%20Vip%20Room-cao-lanh_3.jpg",
+      type: "VIP",
+      available: 3,  // Available rooms
+    },
     // Presidential rooms
     {
       name: "Presidential Suite 1",
@@ -201,7 +221,27 @@ const hotels = [
       price: "6,200,000 VND/đêm",
       rating: 5.0,
       reviews: 270,
-      image: "https://www.lottehotel.com/content/dam/lotte-hotel/lotte/hanoi/accommodation/suite/presidentialsuite/180712-30-2000-acc-hanoi-hotel.jpg.thumb.1920.1920.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwXET8KzpsHuBSb9JUvibOP_ScE9TRzZRNs_HVTPOhGTu8rpeio21ZnOZS6Q5IqW4JQ4k&usqp=CAU",
+      type: "Presidential",
+      available: 1,  // Available rooms
+    },
+    {
+      name: "Presidential Suite 3",
+      location: "Quảng Ninh, Việt Nam",
+      price: "5,500,000 VND/đêm",
+      rating: 5.0,
+      reviews: 230,
+      image: "https://potiquehotel.com/uploads/files/2022/10/12/potique-hotel-nha-trang-presidential-suite-2.jpg",
+      type: "Presidential",
+      available: 1,  // Available rooms
+    },
+    {
+      name: "Presidential Suite 4",
+      location: "Sài Gòn, Việt Nam",
+      price: "6,200,000 VND/đêm",
+      rating: 5.0,
+      reviews: 270,
+      image: "https://vanangroup.com.vn/wp-content/uploads/2024/05/Phong-President-Suite-luon-duoc-thiet-ke-voi-day-du-cong-nang.jpg",
       type: "Presidential",
       available: 1,  // Available rooms
     },

@@ -134,9 +134,19 @@ const rooms = [
     image: '/images/00015.jpg' 
   },
   { 
+
+  
     id: 16,  
     name: 'Love Mei-senpai',  // hoặc 'Hotel Love' tùy theo sự lựa chọn của bạn  
     address: 'Hue, Việt Nam', // hoặc 'Hà Nội, Việt Nam' tùy theo sự lựa chọn của bạn  
+    id: 16, 
+    name: 'Love Hotel', 
+    address: 'Hue, Việt Nam', 
+
+    id: 16,  
+    name: 'Love Mei-senpai',  // hoặc 'Hotel Love' tùy theo sự lựa chọn của bạn  
+    address: 'Hue, Việt Nam', // hoặc 'Hà Nội, Việt Nam' tùy theo sự lựa chọn của bạn  
+
 
     price: '2,000,000 VND', 
     rating: 4.2, 
