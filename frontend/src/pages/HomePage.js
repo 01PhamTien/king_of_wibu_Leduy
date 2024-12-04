@@ -37,6 +37,11 @@ const HomePage = () => {
     }
   };
 
+  // Hàm xử lý khi nhấn đúp vào một sản phẩm để chuyển hướng tới trang chi tiết
+  const handleRoomDetail = (id) => {
+    navigate(`/room/${id}`); // Giả sử URL chi tiết phòng là /room-detail/:id
+  };
+
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 !== 0;
@@ -111,7 +116,11 @@ const HomePage = () => {
           <h3>Bạn có còn quan tâm đến những chỗ nghỉ này?</h3>
           <div className="hotel-grid">
             {rooms.slice(0, 16).map((room) => (
-              <div className="hotel-item" key={room.id}>
+              <div
+                className="hotel-item"
+                key={room.id}
+                onDoubleClick={() => handleRoomDetail(room.id)} // Thêm sự kiện onDoubleClick
+              >
                 <img src={room.image} alt={`Room ${room.id}`} />
                 <h3>{room.name}</h3>
                 <p>{room.address}</p>
