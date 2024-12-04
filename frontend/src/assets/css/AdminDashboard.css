@@ -19,6 +19,19 @@ body {
     flex-direction: column;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh; /* Đảm bảo sidebar chiếm toàn bộ chiều cao */
+    position: fixed; /* Đảm bảo sidebar không cuộn */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Cho phép cuộn nếu có nội dung dài */
+  }
+  
+  .admin-main {
+    margin-left: 250px; /* Đảm bảo phần nội dung chính không bị che khuất bởi sidebar */
+    padding: 20px;
+    background-color: #fff;
+    height: 100vh;
+    overflow-y: auto; /* Cho phép cuộn dọc phần nội dung */
   }
   
   .admin-sidebar h2 {
@@ -29,56 +42,14 @@ body {
     padding-bottom: 10px;
   }
   
-  .admin-sidebar .dropdown {
-    margin-bottom: 15px;
-  }
+
   
-  .admin-sidebar .dropdown-btn {
-    background-color: #444;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    text-align: left;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+
   
-  .admin-sidebar .dropdown-btn:hover {
-    background-color: #575775;
-  }
-  
-  .admin-sidebar .dropdown-content {
-    display: none;
-    margin-top: 5px;
-  }
-  
-  .admin-sidebar .dropdown-content button {
-    background-color: #575775;
-    color: #fff;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    text-align: left;
-    font-size: 0.9rem;
-    cursor: pointer;
-    margin-bottom: 5px;
-  }
-  
-  .admin-sidebar .dropdown-content button:hover {
-    background-color: #6a6a8a;
-  }
-  
-  .admin-sidebar .dropdown-btn:focus + .dropdown-content,
-  .admin-sidebar .dropdown-btn:hover + .dropdown-content {
-    display: block;
-  }
+
   
   .admin-sidebar button {
-    margin-top: auto;
+    margin-top: 45px;
     background-color: #d9534f;
     color: #fff;
     border: none;
@@ -113,6 +84,12 @@ body {
     margin-bottom: 15px;
     color: #555;
   }
+  button {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
   
   section ul {
     list-style: none;
@@ -183,4 +160,123 @@ body {
     background-color: #218838;
   }
   
-  
+  /* Phần thông tin phòng */
+/* Phần thông tin phòng */
+.room-management ul {
+  list-style: none;
+  padding: 0;
+}
+
+.room-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+}
+
+.room-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Để thông tin phòng chiếm phần còn lại */
+}
+
+
+
+.room-details {
+  flex: 1;
+}
+
+.room-details p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 12px;
+  font-weight: bold; /* In đậm thông tin */
+}
+
+.room-details p:first-child {
+  color: #333; /* Làm nổi bật thông tin chính */
+}
+
+.room-details p:last-child {
+  color: #888; /* Màu nhạt cho thông tin phụ */
+}
+
+button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  text-transform: uppercase; /* Chữ in hoa để trông chuyên nghiệp */
+}
+
+button:hover {
+  background-color: #c9302c;
+}
+
+button:focus {
+  outline: none;
+}
+
+.room-info {
+  display: flex;
+  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+  margin-bottom: 30px;
+}
+
+.room-info .room-img {
+  flex: 0 0 15%; /* Chiếm 40% chiều rộng, không thay đổi khi màn hình nhỏ */
+  padding-right: 20px; /* Khoảng cách giữa ảnh và thông tin */
+}
+
+.room-info .room-details {
+  flex: 1; /* Phần còn lại chiếm 60% chiều rộng */
+}
+
+.room-info .room-img img {
+  width: 100%; /* Chiều rộng ảnh chiếm 100% không gian phần tử chứa */
+  height: auto; /* Giữ tỷ lệ ảnh */
+  border-radius: 5px; /* Bo tròn góc ảnh */
+}
+
+.room-info .room-details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.room-info .room-details p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.room-info .room-details .price {
+  font-size: 1.2rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.room-info .room-details button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.room-info .room-details button:hover {
+  background-color: #218838;
+}
