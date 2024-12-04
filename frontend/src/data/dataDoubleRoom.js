@@ -191,7 +191,7 @@ const hotels = [
       price: "5,000,000 VND/đêm",
       rating: 5.0,
       reviews: 200,
-      image: "https://tripzone.vn/uploads/202104/13/02/140041-agoda---ph-ng-presidential-suite.png",
+      image: "https://bwpremiermarvella.com/storage/web-photo/accommodations-1/president-suite/r5-9642-copy.jpg",
       type: "Presidential",
       available: 1,  // Available rooms
     },
