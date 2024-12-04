@@ -13,12 +13,6 @@ const HomePage = () => {
     phone: '',
     paymentMethod: '',
     quantity: 1,
-<<<<<<< HEAD
-  }); // Lưu thông tin người đặt
-  const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
-  const [error, setError] = useState(''); // Lưu thông báo lỗi
-  
-=======
   });
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState('');
@@ -47,7 +41,6 @@ const HomePage = () => {
   const handleRoomDetail = (id) => {
     navigate(`/room/${id}`); // Giả sử URL chi tiết phòng là /room-detail/:id
   };
->>>>>>> a77ee68ffeca2b8d654338c09816055abe10e76b
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -105,7 +98,7 @@ const HomePage = () => {
     alert("Đơn hàng đã được đặt thành công!");
 
     setShowModal(false);
-    setError('');
+setError('');
     setOrderInfo({
       name: '',
       address: '',
@@ -189,7 +182,7 @@ const HomePage = () => {
               <input
                 type="text"
                 placeholder="Số điện thoại"
-                value={orderInfo.phone}
+value={orderInfo.phone}
                 onChange={(e) =>
                   setOrderInfo({ ...orderInfo, phone: e.target.value })
                 }
@@ -211,7 +204,6 @@ const HomePage = () => {
               <button onClick={() => setShowModal(false)}>Hủy</button>
               <button onClick={handleOrderSubmit}>Xác nhận</button>
             </div>
-            
           </div>
         </div>
       )}
