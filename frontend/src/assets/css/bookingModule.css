@@ -16,7 +16,7 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 600px;
+    width : 800px;
     max-width: 90%;
     padding: 20px;
     animation: slideDown 0.3s ease-out;
@@ -64,6 +64,7 @@
     object-fit: cover;
     border-radius: 5px;
     margin-right: 10px;
+    width: 30%;
 }
 .room-detailsaa h4 {
     margin: 0;
