@@ -15,6 +15,7 @@ const HomePage = () => {
   }); // Lưu thông tin người đặt
   const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
   const [error, setError] = useState(''); // Lưu thông báo lỗi
+  
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -199,6 +200,7 @@ quantity: 1,
               <button onClick={() => setShowModal(false)}>Hủy</button>
               <button onClick={handleOrderSubmit}>Xác nhận</button>
             </div>
+            
           </div>
         </div>
       )}

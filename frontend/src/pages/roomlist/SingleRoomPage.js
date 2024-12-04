@@ -78,8 +78,9 @@ const SingleRoomPage = () => {
       <h1 className="header-title">Đặt phòng đơn</h1>
 
       <div className="room-type-buttons">
-        <button onClick={() => handleTypeChange("Luxury")} className={selectedType === "Luxury" ? "active" : ""}>Phòng Luxury</button>
-        <button onClick={() => handleTypeChange("Standard")} className={selectedType === "Standard" ? "active" : ""}>Phòng Standard</button>
+        <button onClick={() => handleTypeChange("Luxury")} className={selectedType === "Luxury" ? "active" : ""}>Luxury Room</button>
+        <button onClick={() => handleTypeChange("Standard")} className={selectedType === "Standard" ? "active" : ""}>Standard Room</button>
+        <button onClick={() => handleTypeChange("President")} className={selectedType === "President" ? "active" : ""}>President Room</button>
       </div>
 
       <div className="room-list">

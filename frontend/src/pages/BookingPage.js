@@ -12,6 +12,7 @@ const BookingPage = () => {
       setBookedRooms(storedRooms);
     }
   }, []);
+  
 
   const handleDeleteRoom = (index) => {
     // Show confirmation prompt
