@@ -11,7 +11,7 @@ const rooms = [
   { 
     id: 2, 
     name: 'Skylark Boutique Hotel', 
-    address: 'Hà Nội, Việt Nam', 
+    address: 'Đà Nẵng, VIệt Nam', 
     price: '1,200,000 VND', 
     rating: 3, 
     reviews: 45, 
@@ -47,7 +47,7 @@ const rooms = [
   { 
     id: 6, 
     name: 'Ipeace Hotel', 
-    address: 'TP. Hồ Chí Minh, Việt Nam', 
+    address: 'Đà Nẵng, VIệt Nam', 
     price: '1,950,000 VND', 
     rating: 3.5, 
     reviews: 150, 
@@ -109,7 +109,7 @@ const rooms = [
   { 
     id: 13, 
     name: 'Galaxy Boutique Đà Nẵng', 
-    address: 'TP. Hồ Chí Minh, Việt Nam', 
+    address: 'Đà Nẵng, VIệt Nam', 
     price: '1,800,000 VND', 
     rating: 4.5, 
     reviews: 130, 
@@ -127,7 +127,7 @@ const rooms = [
   { 
     id: 15, 
     name: 'Vietnamese meeting day', 
-    address: 'TP. Hồ Chí Minh, Việt Nam', 
+    address: 'Đà Nẵng, VIệt Nam', 
     price: '3,300,000 VND', 
     rating: 4.8, 
     reviews: 320, 
