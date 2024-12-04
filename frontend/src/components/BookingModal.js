@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/bookingModule.css";
+import { useNavigate } from 'react-router-dom';
 
 const BookingModal = ({
+  
   isModalVisible,
   setIsModalVisible,
   selectedRooms,
@@ -17,7 +19,7 @@ const BookingModal = ({
 }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
     setIsLoggedIn(loggedInUser ? true : false);
@@ -53,6 +55,10 @@ const BookingModal = ({
       [name]: value,
     });
   };
+  const handleLoginRedirect = () => {
+    navigate('/login');  // Chuyển hướng tới trang login
+  };
+  
 
   return (
     isModalVisible && (
@@ -68,11 +74,9 @@ const BookingModal = ({
             </button>
           </div>
           <div className="modal-body">
-            {!isLoggedIn && (
-              <div className="login-message">
-                <p>Bạn chưa đăng nhập. Vui lòng đăng nhập để tiếp tục.</p>
-              </div>
-            )}
+          {!isLoggedIn && (
+            navigate('/login')
+      )}
 
             <div className="selected-rooms">
               {selectedRooms.map((room, index) => (
@@ -80,7 +84,7 @@ const BookingModal = ({
                   <img
                     src={room.image}
                     alt={room.name}
-                    className="room-image"
+                    className="room-imagegg"
                   />
                   <div className="room-details">
                     <h4>{room.name}</h4>
